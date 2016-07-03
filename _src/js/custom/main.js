@@ -42,12 +42,13 @@ $(document).ready(function() {
     // sticky nav
 
     function stickyNav() {
-        var elementPosition = $('nav').offset();
-        console.log(elementPosition);
 
+        var headerHeight = $('header').outerHeight();
+        var containerPT = $(".container").css('paddingTop').replace(/[^-\d\.]/g, '');
+        var totalSpace = (parseInt(headerHeight) + parseInt(containerPT));
 
         $(window).scroll(function(){
-            if($(window).scrollTop() > elementPosition.top){
+            if($(window).scrollTop() >= totalSpace){
                 $('nav').addClass("sticky");
             } else {
                 $('nav').removeClass("sticky");

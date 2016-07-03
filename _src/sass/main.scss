@@ -83,12 +83,10 @@ img {
     max-width: 1240px;
     margin: 0 auto;
     position: relative;
-    min-height: 10000px;
     z-index: 1;
     background: #fff;
     box-shadow: 0 10px 20px rgba(0,0,0,.15);
     padding: rhythm(5) 0 rhythm(3);
-    //padding: 180px 0 90px;
     overflow: auto;
     &:after,
     &:before {
@@ -120,7 +118,7 @@ img {
     }
 }
 nav {
-    display: block;
+
     position: relative;
     &.sticky {
         position: fixed;
