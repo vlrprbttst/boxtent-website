@@ -1,0 +1,63 @@
+$base-font-size: 18px;
+$base-line-height: 30px;
+@include establish-baseline;
+
+.container {
+    h1 {
+        font-family: $headings-font;
+        color:$accent2;
+        @include adjust-font-size-to(60px,2);
+        letter-spacing: 2px;
+        font-weight: normal;
+        border-bottom: 1px solid #dedede;
+        padding-bottom: rhythm(.28);
+        margin: 0 0 rhythm(.67);
+        text-transform: uppercase;
+        position:relative;
+        top:-6px;
+    }
+
+    h2 {
+        font-family: $subheading-font;
+        color:$accent;
+        @include adjust-font-size-to(24px,1);
+        font-weight: normal;
+        text-transform: uppercase;
+        position:relative;
+        top:-4px;
+        margin: 0 0 rhythm(.8);
+    }
+
+    p {
+        font-family: $text-font;
+        color:$text;
+        @include adjust-font-size-to(18px,1);
+        letter-spacing:.1px;
+        font-weight: normal;
+        position:relative;
+        top: -9px;
+        margin: 0 0 rhythm(.9);
+
+        b, strong {
+            font-weight: 700;
+        }
+    }
+
+    .page-ul {
+        margin: 0 0 rhythm(.9);
+        padding:0 0 0  rhythm(.5); 
+        li {
+            font-family: $text-font;
+            color:$text;
+            @include adjust-font-size-to(18px,1);
+            letter-spacing:.1px;
+            font-weight: normal;
+            list-style-position: inside;
+        }
+    }
+
+    code {
+        @include adjust-font-size-to(16px,1);
+        padding:1px 2px !important;
+    }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "BoxTent",
+  "description": "A front-end infrastructure powered by Grunt",
+  "main": "",
+  "authors": [
+    "Valerio <omegaiori@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://boxtent.top",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "~1.9.1",
+    "matchHeight": "matchheight#^0.7.0",
+    "FitText.js": "^1.2.0",
+    "prism": "^1.5.1"
+  }
+}

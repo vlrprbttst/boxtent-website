@@ -1,0 +1,164 @@
+// base
+@import "compass";
+@import "partials/_variables.scss";
+@import "partials/_mixin.scss";
+@import "partials/_normalize.scss";
+@import "partials/_typography.scss";
+@import "partials/_prism.scss";
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+*,
+*:after,
+*:before {
+    box-sizing: inherit;
+}
+body {
+    background: #e6dfd9;
+    padding: 0 40px 40px;
+}
+img {
+    max-width: 100%;
+}
+.background-component {
+    font-family: $code-font;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 50%;
+    overflow-y: hidden;
+    display: block;
+    word-break: break-all;
+    color: darken($background-color,6%);
+    user-select: none;
+    z-index: -1;
+    line-height: 1.2;
+    &:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-image: linear-gradient(bottom, $background-color 10%, rgba(0,0,0,0) 50%);
+        content: "";
+        height: 100%;
+    }
+}
+.header {
+    max-width: 1240px;
+    margin: 0 auto;
+    @include clearfix;
+}
+.header__left {
+    float: left;
+    width: 40%;
+    position: relative;
+    img {
+        vertical-align: bottom;
+    }
+    h2 {
+        font-family: $subheading-font;
+        font-weight: normal;
+        text-transform: uppercase;
+        color: #666666;
+        font-size: 22px;
+        line-height: 24px;
+        letter-spacing: 0.8px;
+    }
+}
+.header__content-wrapper {
+    position: absolute;
+    bottom: 0;
+}
+.header__right {
+    float: left;
+    width: 60%;
+    img {
+        position: relative;
+        bottom: -27%;
+        z-index: 2;
+    }
+}
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 10000px;
+    z-index: 1;
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,.15);
+    padding: rhythm(5) 0 rhythm(3);
+    //padding: 180px 0 90px;
+    overflow: auto;
+    &:after,
+    &:before {
+        content: "";
+        top: 0;
+        left: 0;
+        position: absolute;
+        height: 50px;
+        width: 100%;
+        background-color: #fff;
+        background-image: linear-gradient(45deg, $accent2 25%, transparent 25%, transparent 75%, $accent2 75%, $accent2), linear-gradient(45deg, $accent2 25%, transparent 25%, transparent 75%, $accent2 75%, $accent2);
+        background-size: 50px 50px;
+        background-position: 0 0, 25px 25px;
+    }
+    &:after {
+        bottom: 0;
+        top: auto;
+    }
+}
+.container__col {
+    &--left {
+        width: calc(100% - 250px);
+        float: left;
+        padding: rhythm(.2) rhythm(2);
+    }
+    &--right {
+        width: 250px;
+        float: left;
+    }
+}
+nav {
+    display: block;
+    position: relative;
+    &.sticky {
+        position: fixed;
+        top: 20px;
+    }
+    ul {
+        @include reset;
+        padding-top: rhythm(.25);
+        li {
+            font-family: $subheading-font;
+            list-style: none;
+            text-transform: uppercase;
+            @include adjust-font-size-to(18px,1);
+            margin: 0 0 rhythm(1);
+            > ul li {
+                margin-bottom: 0;
+                a {
+                    font-family: $text-font;
+                    text-transform: none;
+                    color: $accent;
+                    text-decoration: none;
+                    padding: 2px 5px;
+                    position: relative;
+                    left: -5px;
+                }
+                &.active a {
+                    background: $accent;
+                    color: white;
+                }
+                &:first-child {
+                    padding-top: rhythm(.25);
+                }
+            }
+        }
+    }
+}
+.container__col--left a,
+.container__col--left a:active,
+.container__col--left a:visited {
+    color: $accent2;
+}

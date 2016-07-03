@@ -1,0 +1,304 @@
+<!doctype html>
+<!--[if IE 9]>
+<html lang="en" class="ie ie9">
+<![endif]-->
+<!--[if lt IE 9]>
+<html lang="en" class="ie ie-legacy">
+<![endif]-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>BoxTent</title>
+    <style>
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  display: block;
+}
+
+img {
+  border: 0;
+}
+
+html {
+  font-size: 112.5%;
+  line-height: 1.66667em;
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+body {
+  background: #e6dfd9;
+  padding: 0 40px 40px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.background-component {
+  font-family: "Source Code Pro", monospace;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50%;
+  overflow-y: hidden;
+  display: block;
+  word-break: break-all;
+  color: #dacfc7;
+  z-index: -1;
+  line-height: 1.2;
+}
+
+.background-component:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(to top, #e6dfd9 10%, rgba(0, 0, 0, 0) 50%);
+  content: "";
+  height: 100%;
+}
+
+.header {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.header__left {
+  float: left;
+  width: 40%;
+  position: relative;
+}
+
+.header__left img {
+  vertical-align: bottom;
+}
+
+.header__left h2 {
+  font-family: "Comfortaa", cursive;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #666666;
+  font-size: 22px;
+  line-height: 24px;
+  letter-spacing: 0.8px;
+}
+
+.header__content-wrapper {
+  position: absolute;
+  bottom: 0;
+}
+
+.header__right {
+  float: left;
+  width: 60%;
+}
+
+.header__right img {
+  position: relative;
+  bottom: -27%;
+  z-index: 2;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 10000px;
+  z-index: 1;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  padding: 8.33333em 0 5em;
+  overflow: auto;
+}
+
+.container:after,
+.container:before {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  background-color: #fff;
+  background-image: linear-gradient(45deg, #248747 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 75%, #248747 75%, #248747), linear-gradient(45deg, #248747 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 75%, #248747 75%, #248747);
+  background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+}
+
+.container:after {
+  bottom: 0;
+  top: auto;
+}
+    </style>
+    <meta name="description" content="this is BoxTent">
+<!-- facebook -->
+<meta property="og:title" content="content">
+<meta property="og:type" content="website">
+<meta property="og:url" content="content">
+<meta property="og:image" content="absolute url">
+<meta property="og:description" content="content">
+<meta property="og:site_name" content="url">
+<!-- twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@nytimes">
+<meta name="twitter:creator" content="@nytimes">
+<meta name="twitter:title" content="heading of the card">
+<meta name="twitter:description" content="description of the card">
+<meta name="twitter:image" content="url/to/the/pic.jpg">
+<!-- viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Windows/IE font smoothing -->
+<meta http-equiv="cleartype" content="on">
+<!-- Use latest IE rendering engine and switch on chrome Frame if available -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link href="https://fonts.googleapis.com/css?family=Bangers|Comfortaa|Source+Code+Pro:300|Source+Sans+Pro:400,700" rel="stylesheet">
+
+<script charset="utf-8">
+      function loadCSS( href, before, media ){
+          "use strict";
+          var ss = window.document.createElement( "link" );
+          var ref = before || window.document.getElementsByTagName( "script" )[ 0 ];
+          var sheets = window.document.styleSheets;
+          ss.rel = "stylesheet";
+          ss.href = href;
+          ss.media = "only x";
+          ref.parentNode.insertBefore( ss, ref );
+          function toggleMedia(){
+              var defined;
+              for( var i = 0; i < sheets.length; i++ ){
+                  if( sheets[ i ].href && sheets[ i ].href.indexOf( href ) > -1 ){
+                      defined = true;
+                  }
+              }
+              if( defined ){
+                  ss.media = media || "all";
+              }
+              else {
+                  setTimeout( toggleMedia );
+              }
+          }
+          toggleMedia();
+          return ss;
+      }
+      loadCSS( "css/main.css" );
+</script>
+</head>
+
+<body>
+    <div class="background-component">
+    html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em0}img{border:0}button{color:inherit;font:inherit;margin:0}button{overflow:visible}button{text-transform:none}button{-webkit-appearance:button}button::-moz-focus-inner{border:0;padding:0}html{box-sizing:border-box;height:100%}*,:after,:before{box-sizing:inherit}body{background:#999;font-family:arial;height:100%;padding:0}h1{color:red}.container{max-width:800px;height:100%;background:#fff;margin:0auto}.container:after{content:"";display:table;clear:both}img{width:80%}.left,.right{float:left;height:100%}.left{width:70%;background:#ff69b4}.right{background:pink;width:30%}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em0}img{border:0}button{color:inherit;font:inherit;margin:0}button{overflow:visible}button{text-transform:none}button{-webkit-appearance:button}button::-moz-focus-inner{border:0;padding:0}html{box-sizing:border-box;height:100%}*,:after,:before{box-sizing:inherit}body{background:#999;font-family:arial;height:100%;padding:0}h1{color:red}.container{max-width:800px;height:100%;background:#fff;margin:0auto}.container:after{content:"";display:table;clear:both}img{width:80%}.left,.right{float:left;height:100%}.left{width:70%;background:#ff69b4}.right{background:pink;width:30%}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em0}img{border:0}button{color:inherit;font:inherit;margin:0}button{overflow:visible}button{text-transform:none}button{-webkit-appearance:button}button::-moz-focus-inner{border:0;padding:0}html{box-sizing:border-box;height:100%}*,:after,:before{box-sizing:inherit}body{background:#999;font-family:arial;height:100%;padding:0}h1{color:red}.container{max-width:800px;height:100%;background:#fff;margin:0auto}.container:after{content:"";display:table;clear:both}img{width:80%}.left,.right{float:left;height:100%}.left{width:70%;background:#ff69b4}.right{background:pink;width:30%}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em0}img{border:0}button{color:inherit;font:inherit;margin:0}button{overflow:visible}button{text-transform:none}button{-webkit-appearance:button}button::-moz-focus-inner{border:0;padding:0}html{box-sizing:border-box;height:100%}*,:after,:before{box-sizing:inherit}body{background:#999;font-family:arial;height:100%;padding:0}h1{color:red}.container{max-width:800px;height:100%;background:#fff;margin:0auto}.container:after{content:"";display:table;clear:both}img{width:80%}.left,.right{float:left;height:100%}.left{width:70%;background:#ff69b4}.right{background:pink;width:30%}
+</div>
+
+    <header class="header">
+        <div class="header__left">
+            <div class="header__content-wrapper">
+                <img src="images/boxtent.png" alt="BoxTent">
+                <h2>a front end infrastructure</h2>
+            </div>
+        </div>
+        <div class="header__right">
+            <img src="images/boxtent-illustration.png" alt="BoxTent illustration">
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="container__col--left">
+            <h1>
+                overview
+            </h1>
+            <section data-anchor="introduction">
+                <h2>
+                    introduction
+                </h2>
+
+                <p>
+                    BoxTent is a front end workflow powered by <a href="http://gruntjs.com/" target="_blank">Grunt</a> and <a href="https://bower.io" target="_blank">Bower</a> that gives you the infrastructure to kickstart your next HTML+CSS+JS project. It is particularly efficient on small websites (like this one), but can be easily extended with extra features to
+                    suit your needs.
+                </p>
+                <p>
+                    BoxTent comes packed with tasks automation and optimizations to help you stay focused on what really matters: <b>your code</b>.
+                </p>
+                <p>
+                    BoxTent covers all basic needs of a modern day front-end web developer:
+
+                    <ul class="page-ul">
+                        <li>browser auto-reloading</li>
+                        <li>Browser syncing across devices</li>
+                        <li>images optimization</li>
+                        <li><code class="language-markup">.scss</code> compilation with Compass support</li>
+                        <li><code class="language-markup">.js</code> concatenation</li>
+                        <li><code class="language-markup">.html</code>, <code class="language-markup">.css</code> and <code class="language-markup">.js</code> minification</li>
+                        <li><code class="language-markup">.css</code> autoprefixing</li>
+                        <li>critical above the fold <code class="language-markup">.css</code> management</li>
+                        <li>includes</li>
+                    </ul>
+                </p>
+            </section> <!-- introduction -->
+        </div>
+
+        <div class="container__col--right">
+                <nav>
+                    <ul>
+                        <li>
+                            overview
+                            <ul>
+                                <li class="active"><a href="#" data-scroll="introduction">Introduction</a></li>
+                                <li><a href="#">Installation</a></li>
+                                <li><a href="#">Folder Structure</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            overview
+                            <ul>
+                                <li><a href="#">Introduction</a></li>
+                                <li><a href="#">Installation</a></li>
+                                <li><a href="#">Folder Structure</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+        </div>
+    </div>
+
+
+    
+<!-- build:js js/production.min.js -->
+<script src="js/libs/jquery/jquery.js"></script>
+<script src="js/libs/FitText.js/jquery.fittext.js"></script>
+<script src="js/libs/matchHeight/jquery.matchHeight.js"></script>
+<script src="js/libs/prism/prism.js"></script>
+<script src="js/custom/main.js"></script>
+<!-- /build -->
+</body>
+
+</html>
