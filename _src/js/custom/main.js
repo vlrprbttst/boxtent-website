@@ -89,4 +89,10 @@ $(document).ready(function() {
         stickyNav();
     });
 
+    WebFont.load({
+        google: {
+            families: ['Bangers', 'Comfortaa','Source Code Pro:300','Source Sans Pro:400,700']
+        }
+    });
+    
 }); //document ready

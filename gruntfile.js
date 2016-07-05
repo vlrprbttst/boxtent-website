@@ -130,6 +130,7 @@ module.exports = function(grunt) {
                     '<%= dev %>/js/libs/FitText.js/jquery.fittext.js',
                     '<%= dev %>/js/libs/matchHeight/jquery.matchHeight.js',
                     '<%= dev %>/js/libs/prism/prism.js',
+                    '<%= dev %>/js/libs/webfontloader/webfontloader.js',
                     '<%= dev %>/js/custom/**/*.js'
                 ],
                 dest: '<%= site %>/js/production.js'
@@ -265,7 +266,7 @@ module.exports = function(grunt) {
                     dot: true,
                     cwd: 'bower_components',
                     dest: '<%= dev %>/js/libs/',
-                    src: ['jquery/dist/jquery.js','FitText.js/jquery.fittext.js','matchHeight/jquery.matchHeight.js','prism/prism.js']
+                    src: ['jquery/dist/jquery.js','FitText.js/jquery.fittext.js','matchHeight/jquery.matchHeight.js','prism/prism.js','webfontloader/webfontloader.js']
                 }]
             },
             js: {

@@ -21,6 +21,7 @@
     "jquery": "^3.0.0",
     "matchHeight": "matchheight#^0.7.0",
     "FitText.js": "^1.2.0",
-    "prism": "^1.5.1"
+    "prism": "^1.5.1",
+    "webfontloader": "^1.6.24"
   }
 }
