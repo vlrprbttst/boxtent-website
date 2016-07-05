@@ -46,54 +46,80 @@
                 </h2>
 
                 <p>
-                    BoxTent is a front end workflow powered by <a href="http://gruntjs.com/" target="_blank">Grunt</a> and <a href="https://bower.io" target="_blank">Bower</a> that gives you the infrastructure to kickstart your next HTML+CSS+JS project. It is particularly efficient on small websites (like this one), but can be easily extended with extra features to
-                    suit your needs.
+                    Boxtent is a frontend workflow that gives you the infrastructure to build your next website following modern web development best practices to deliver a state of the art product for your users.     <br><br>
+                    With the help of <a href="http://gruntjs.com/" target="_blank">Grunt</a> and <a href="https://bower.io/" target="_blank">Bower</a>, Boxtent automates your workflow and takes care of assets optimization, concatenation, minification and much more. Boxtent includes out of the box support for:
                 </p>
                 <p>
-                    BoxTent comes packed with tasks automation and optimizations to help you stay focused on what really matters: <b>your code</b>.
-                </p>
-                <p>
-                    BoxTent covers all basic needs of a modern day front-end web developer:
-
                     <ul class="page-ul">
-                        <li>browser auto-reloading</li>
-                        <li>Browser syncing across devices</li>
-                        <li>images optimization</li>
-                        <li><code class="language-markup">.scss</code> compilation with Compass support</li>
+                        <li><a href="http://sass-lang.com/guide" target="_blank">Sass</a> (<code class="language-markup">.scss</code>) compilation with <a href="http://compass-style.org/" target="_blank">Compass</a> support</li>
+                        <li>Images optimization and compression</li>
                         <li><code class="language-markup">.js</code> concatenation</li>
                         <li><code class="language-markup">.html</code>, <code class="language-markup">.css</code> and <code class="language-markup">.js</code> minification</li>
-                        <li><code class="language-markup">.css</code> autoprefixing</li>
-                        <li>critical above the fold <code class="language-markup">.css</code> management</li>
-                        <li>includes</li>
+                        <li><code class="language-markup">.css</code> automatic autoprefixing</li>
+                        <li>Critical above the fold <code class="language-markup">.css</code> smart management</li>
+                        <li>Browser auto-reloading and live syncing across devices</li>
+                        <li><code class="language-markup">.html</code> includes</li>
                     </ul>
                 </p>
+                <p>
+                    Boxtent is perfect for crafting small and simple <code class="language-markup">.html</code>, <code class="language-markup">.css</code> and <code class="language-markup">.js</code> performant website (like this one) but can be easily extended to suit more complex needs as well, leaving you the time to focus on what really matters: <b>your code</b>. <br><br>
+                    In a world of complex frontend workflows and frameworks, BoxTent tries to cover all the basic needs of frontend developing, without over complicating your life. Not all websites need super complex setups and languages, but all websites deserve to be created with performance in mind, using modern tools and with an infrastructure that grants speed and productivity.
+                </p>
             </section> <!-- introduction -->
+
+            <section data-anchor="installation">
+                <h2>
+                    installation
+                </h2>
+                <h3>
+                    Requirements
+                </h3>
+                <p>
+                    Boxtent is based on Grunt for tasks automation, Bower for javascript libraries management and Git. Get ready by installing the following items before continuing:
+                </p>
+                <p>
+                    <ul class="page-ul">
+                        <li>
+                            Node.js: use the installer provided on the <a href="https://nodejs.org/en/" target="_blank">NodeJS website</a>
+                        </li>
+                        <li>
+                            Grunt: install grunt by typing <code class="language-bash">$ npm install -g grunt-cli</code> in the terminal
+                        </li>
+                        <li>
+                            Bower: install bower by typing <code class="language-bash">$ npm install -g bower</code> in the terminal
+                        </li>
+                        <li>
+                            GIT: download it on the <a href="https://git-scm.com/download/" target="_blank">GIT official website</a>. GIT is needed to download libraries via Bower.
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    You can now clone or download the Boxtent repository on your machine and start to install all default dependencies and gems to have it working.
+                </p>
+                <h3>
+                    Dependencies
+                </h3>
+                <h4>
+                    gems
+                </h4>
+                <p>
+                    To support Sass and Compass, you must have their gems installed on your machine. Type these in the terminal anywhere:
+                </p>
+<pre><code class="language-bash">$ gem install sass</code></pre><br>
+                <p>
+                    and then:
+                </p>
+<pre><code class="language-bash">$ gem install compass</code></pre>
+
+            </section>
         </div>
 
 
 
         <div class="container__col--right">
-                <nav class="nav">
-                    <ul>
-                        <li>
-                            overview
-                            <ul>
-                                <li class="active"><a href="#" data-scroll="introduction">Introduction</a></li>
-                                <li><a href="#">Installation</a></li>
-                                <li><a href="#">Folder Structure</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            overview
-                            <ul>
-                                <li><a href="#">Introduction</a></li>
-                                <li><a href="#">Installation</a></li>
-                                <li><a href="#">Folder Structure</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-
+            <!-- build:include _includes/nav.html -->
+            content of _includes/nav.html
+            <!-- /build -->
         </div>
     </div>
 
