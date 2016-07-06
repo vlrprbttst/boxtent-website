@@ -129,7 +129,6 @@ module.exports = function(grunt) {
                     '<%= dev %>/js/libs/jquery/dist/jquery.js',
                     '<%= dev %>/js/libs/FitText.js/jquery.fittext.js',
                     '<%= dev %>/js/libs/matchHeight/jquery.matchHeight.js',
-                    '<%= dev %>/js/libs/prism/prism.js',
                     '<%= dev %>/js/libs/webfontloader/webfontloader.js',
                     '<%= dev %>/js/custom/**/*.js'
                 ],

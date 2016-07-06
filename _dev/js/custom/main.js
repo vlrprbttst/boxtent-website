@@ -94,5 +94,5 @@ $(document).ready(function() {
             families: ['Bangers', 'Comfortaa','Source Code Pro:300','Source Sans Pro:400,700']
         }
     });
-    
+
 }); //document ready
