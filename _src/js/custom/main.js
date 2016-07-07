@@ -47,8 +47,8 @@ $(document).ready(function() {
         var containerPT = $(".container").css('paddingTop').replace(/[^-\d\.]/g, '');
         var totalSpace = (parseInt(headerHeight) + parseInt(containerPT));
 
-        $(window).scroll(function(){
-            if($(window).scrollTop() >= totalSpace){
+        $(window).scroll(function() {
+            if ($(window).scrollTop() >= totalSpace) {
                 $('nav').addClass("sticky");
             } else {
                 $('nav').removeClass("sticky");
@@ -56,19 +56,42 @@ $(document).ready(function() {
         });
     }
 
-    //animated scroll
-    $('nav a').on('click', function(e) {
+    //smoothscroll
+    $('a[href^="#"]').on('click', function(e) {
         e.preventDefault();
-        var scrollAnchor = $(this).attr('data-scroll'),
-            scrollPoint = $('section[data-anchor="' + scrollAnchor + '"]').offset().top - 20;
+        $(document).off("scroll");
 
-        $('body,html').animate({
-            scrollTop: scrollPoint
-        }, 500);
+        $('a').each(function() {
+            $(this).removeClass('active');
+        })
+        $(this).addClass('active');
 
-        return false;
+        var target = this.hash,
+            menu = target;
+        $target = $(target);
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top - 20
+        }, 500, 'swing', function() {
+            window.location.hash = target;
+            $(document).on("scroll", onScroll);
+        });
     });
 
+    //active link on nav
+    $(document).on("scroll", onScroll);
+    function onScroll(event) {
+        var scrollPos = $(document).scrollTop();
+        $('nav a').each(function() {
+            var currLink = $(this);
+            var refElement = $(currLink.attr("href"));
+            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                $('nav a').removeClass("active");
+                currLink.addClass("active");
+            } else {
+                currLink.removeClass("active");
+            }
+        });
+    }
 
     //fit text
     $(".background-component").fitText(4, {
@@ -77,10 +100,10 @@ $(document).ready(function() {
     });
 
     //async google font loading
-    
+
     WebFont.load({
         google: {
-            families: ['Bangers', 'Comfortaa','Source Code Pro:300','Source Sans Pro:400,700']
+            families: ['Bangers', 'Comfortaa', 'Source Code Pro:300', 'Source Sans Pro:400,700']
         }
     });
 

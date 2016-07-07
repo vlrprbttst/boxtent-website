@@ -145,10 +145,10 @@ nav {
                     padding: 2px 5px;
                     position: relative;
                     left: -5px;
-                }
-                &.active a {
-                    background: $accent;
-                    color: white;
+                    &.active {
+                        background: $accent;
+                        color: white;
+                    }
                 }
                 &:first-child {
                     padding-top: rhythm(.25);
