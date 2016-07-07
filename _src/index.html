@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="header__right">
-            <img src="images/boxtent-illustration.png" alt="BoxTent illustration">
+            <img src="images/boxtent-illustration.svg" alt="BoxTent illustration">
         </div>
     </header>
 
@@ -103,29 +103,109 @@
                     gems
                 </h4>
                 <p>
-                    To support Sass and Compass, you must have their gems installed on your machine. Type these in the terminal anywhere:
-                </p>
-<pre><code class="language-bash">$ gem install sass</code></pre>
-                <p>
-                    and then:
-                </p>
-<pre><code class="language-bash">$ gem install compass</code></pre>
+                    To support Sass and Compass, you must have their gems installed on your machine. Type these in the terminal anywhere <code class="language-bash">$ gem install sass</code> and then <code class="language-bash">$ gem install compass</code>.
 
                 <h4>
                     dependencies
                 </h4>
                 <p>
-                    To install the default BoxTent dependencies, <code class="language-bash">cd</code> to the root of the cloned repository and type
-                </p>
-<pre><code class="language-bash">$ npm install</code></pre>
-                <p>
-                    and then:
-                </p>
-<pre><code class="language-bash">$ bower install</code></pre>
+                    To install the default BoxTent dependencies, <code class="language-bash">cd</code> to the root of the cloned repository and type <code class="language-bash">$ npm install</code> and then <code class="language-bash">$ bower install</code>.
                 <p>
                     Boxtent comes with <b>jquery.1.9.1</b> by default.
                 </p>
+
+                <h4>
+                    run boxtent
+                </h4>
+                <p class="trailing">
+                    Now that you have it all installed, <code class="language-bash">cd</code> to the root of the project and type grunt, browse to <code class="language-bash">localhost:3000</code> and.. start coding! It is suggested to open two terminal windows (with GIT support) while working: one will be busy watching for changes to your codebase and live reloading the browser for you, the other will be useful for downloading assets via bower on the go, to perform manual grunt tasks or to push your commits online.
+                </p>
             </section>
+
+            <h1>
+                working with boxtent
+            </h1>
+            <section id="folder-structure">
+                <h2>
+                    Folder Structure
+                </h2>
+                <p>
+                    Boxtent is based on three levels divided in 3 main folders:
+                    <ul class="page-ul">
+                        <li>
+                            <code class="language-bash">_src</code>: this is your source code, this is where you work
+                        </li>
+                        <li>
+                            <code class="language-bash">_dev</code>: is the code you see on <code class="language-bash">localhost:3000</code>
+                        </li>
+                        <li>
+                            <code class="language-bash">_site</code>: the final website to upload in production
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    You always work on <code class="language-bash">_src</code> and never edit anything on <code class="language-bash">_dev</code> or <code class="language-bash">_site</code>. <br><br> <code class="language-bash">_dev</code> is the result of low-level automations such as sass compilation, autoprefixing, browser reloading and generally tasks suited for development. At this stage, your website will be easy to debug. <br><br>The <code class="language-bash">_site</code> folder instead, will be fully optimized with performance in mind. This is the code that will go live for your users. <br><br>If you don’t like the naming of the folders, you can change it by editing the path variables in the <code class="language-bash">gruntfile.js</code>:
+                </p>
+<pre><code class="language-javascript">grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+
+    //path variables
+    source: '_src',
+    dev: '_dev',
+    site: '_site',
+    ...
+</code></pre>
+            </section>
+            <section id="development-stage">
+                <h2>
+                    The development stage
+                </h2>
+                <p>
+                    While working on the source folder, there is a series of automations performed to help you build your website in a fast and smart way that suits development and debugging.
+                </p>
+
+                <h3>
+                    CSS
+                </h3>
+
+                <p>
+                    <code class="language-bash">.scss</code> files are compiled and autoprefixed in<code class="language-bash"> _dev/css/main.css</code>. <br><br>
+
+                    Sass compilation comes with Compass support but if you don’t need it, you can remove  the <code class="language-scss">@import "compass";</code> from your <code class="language-bash">main.scss</code> file and from the gruntfile. In case you want to use other sass plugins, just install the gems and update your gruntfile accordingly. For example, if you decide to use <a href="http://susy.oddbird.net/" target="_blank">Susy</a> as your grid system, in the terminal type <code class="language-bash">gem install susy</code>, then <code class="language-scss">@import "susy";</code> on the top of the <code class="language-bash">main.scss</code> file and edit your gruntfile like this:
+                </p>
+<pre><code class="language-javascript">sass: {
+    dist: {
+        options: {
+            style: 'nested', //no need for config.rb
+            compass: 'true',
+            // require: 'plugins?'
+            require: 'susy'
+            ...
+</code></pre>
+                <p>
+                    Autoprefixing is dynamic and configurable in the gruntfile. To read more about configuration options and more <a href="https://github.com/postcss/autoprefixer" target="_blank">click here</a>.
+                </p>
+                <h3>
+                    Critical (AKA Above the Fold) CSS
+                </h3>
+                <p>
+                    Boxtent was created with performance in mind, and automatic above the fold css extraction and embedding is one of BoxTent features. Critical css is page-based, so it is created every time you save an <code class="language-bash">.html</code> file and every file is automatically named after its related page. It is then updated every time you edit your <code class="language-bash">.scss</code> files. The extracted css must be included on each page’s <code class="language-markup">&lt;head&gt;</code> wrapped around special comments like this:
+                </p>
+<pre><code class="language-markup">&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;BoxTent&lt;/title&gt;
+
+&lt;!-- build:css:build inline --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;critical-css/index.css&quot;&gt;
+&lt;!-- /build --&gt;
+...</code>
+</pre>
+            <p>
+                Paths of selectors such as <code class="language-css">@font-face</code> or <code class="language-css">background-image:url()</code> are automatically transformed in relative paths. If your website will not be hosted on a first level domain you will have <b>404</b> errors on the console because of wrong paths to these resources. To quickly solve this problem, uncomment <code class="language-javascript"> //ignore: ['@font-face',/url\(/]</code> in the gruntfile: this will exclude anything linking to assets in the above the fold CSS. <br><br> The CSS will be inlined only when <code class="language-bash">_site</code> is produced during the build stage. Notice that critical CSS is coupled with the main CSS file being appended and loaded asynchronously with a javascript function called <code class="language-javascript">loadCSS()</code> located in  <code class="language-markup">&lt;head&gt;</code>, <a href="https://github.com/filamentgroup/loadCSS" target="_blank">read more about it here</a>.
+            </p>
+
+
+            </section> <!-- development stage -->
         </div>
 
 

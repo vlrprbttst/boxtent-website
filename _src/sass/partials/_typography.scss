@@ -63,10 +63,14 @@ $base-line-height: 30px;
         b, strong {
             font-weight: 700;
         }
+
+        &.trailing {
+            margin: 0 0 rhythm(1.8);
+        }
     }
 
     pre {
-        margin: 0 0 rhythm(1.6); 
+        margin: 0 0 rhythm(1.6);
     }
 
     .page-ul {
