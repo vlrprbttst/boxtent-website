@@ -76,6 +76,14 @@ $(document).ready(function() {
         maxFontSize: '30px'
     });
 
+    //async google font loading
+    
+    WebFont.load({
+        google: {
+            families: ['Bangers', 'Comfortaa','Source Code Pro:300','Source Sans Pro:400,700']
+        }
+    });
+
     //header eq height
     $('.header > div').matchHeight();
     bgSize();
@@ -89,10 +97,5 @@ $(document).ready(function() {
         stickyNav();
     });
 
-    WebFont.load({
-        google: {
-            families: ['Bangers', 'Comfortaa','Source Code Pro:300','Source Sans Pro:400,700']
-        }
-    });
 
 }); //document ready
