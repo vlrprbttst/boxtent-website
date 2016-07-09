@@ -161,7 +161,6 @@ img {
     }
 }
 nav {
-
     position: relative;
     &.sticky {
         position: fixed;
@@ -196,6 +195,10 @@ nav {
                 }
             }
         }
+    }
+    @include respond-to(63.938) {
+        display: none;
+        
     }
 }
 .container__col--left a,

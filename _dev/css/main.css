@@ -735,6 +735,9 @@ nav {
             color: white; }
         nav ul li > ul li:first-child {
           padding-top: 0.41667em; }
+  @media all and (max-width: 63.938em) {
+    nav {
+      display: none; } }
 
 .container__col--left a,
 .container__col--left a:active,

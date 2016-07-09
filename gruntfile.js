@@ -20,8 +20,8 @@ module.exports = function(grunt) {
              options: {
                  base: './_dev',
                  css: '_dev/css/main.css',
-                 width: 1200,
-                 height: 500,
+                 width: 1240,
+                 height: 1200,
                  //ignore: ['@font-face',/url\(/]
              },
              src: '_dev/' + name + '.html',
