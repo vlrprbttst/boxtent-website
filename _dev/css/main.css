@@ -484,6 +484,10 @@ html {
   text-transform: uppercase;
   position: relative;
   top: -6px; }
+  @media all and (max-width: 30em) {
+    .container h1 {
+      margin: 0 0 0.66667em;
+      word-wrap: break-word; } }
 .container h2 {
   font-family: "Comfortaa", cursive;
   color: #d74e37;
@@ -558,7 +562,14 @@ html {
 
 body {
   background: #e6dfd9;
-  padding: 0 40px 40px; }
+  padding: 0 2.5em 2.5em; }
+  @media all and (max-width: 37.438em) {
+    body {
+      font-size: 90%; } }
+  @media all and (max-width: 30em) {
+    body {
+      padding: 0 0.83333em 0.83333em;
+      font-size: 87%; } }
 
 img {
   max-width: 100%; }
@@ -602,18 +613,36 @@ img {
   position: relative; }
   .header__left img {
     vertical-align: bottom; }
+    @media all and (max-width: 63.938em) {
+      .header__left img {
+        max-width: 380px;
+        padding-top: 1.66667em; } }
+    @media all and (max-width: 30em) {
+      .header__left img {
+        width: 100%; } }
   .header__left h2 {
     font-family: "Comfortaa", cursive;
     font-weight: normal;
     text-transform: uppercase;
     color: #666666;
-    font-size: 22px;
-    line-height: 24px;
+    font-size: 1.22222em;
+    line-height: 1.36364em;
     letter-spacing: 0.8px; }
+    @media all and (max-width: 30em) {
+      .header__left h2 {
+        font-size: 1em;
+        line-height: 1.66667em; } }
+  @media all and (max-width: 63.938em) {
+    .header__left {
+      width: 100%;
+      height: auto !important; } }
 
 .header__content-wrapper {
   position: absolute;
   bottom: 0; }
+  @media all and (max-width: 63.938em) {
+    .header__content-wrapper {
+      position: static; } }
 
 .header__right {
   float: left;
@@ -622,6 +651,9 @@ img {
     position: relative;
     bottom: -27%;
     z-index: 2; }
+  @media all and (max-width: 63.938em) {
+    .header__right {
+      display: none; } }
 
 .container {
   max-width: 1240px;
@@ -643,17 +675,34 @@ img {
     background-image: linear-gradient(45deg, #248747 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 75%, #248747 75%, #248747), linear-gradient(45deg, #248747 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 75%, #248747 75%, #248747);
     background-size: 50px 50px;
     background-position: 0 0, 25px 25px; }
+    @media all and (max-width: 37.438em) {
+      .container:after, .container:before {
+        background-size: 25px 25px;
+        background-position: 0 0, 12.5px 12.5px;
+        height: 25px; } }
   .container:after {
     bottom: 0;
     top: auto; }
+  @media all and (max-width: 37.438em) {
+    .container {
+      padding: 3.33333em 0; } }
 
 .container__col--left {
   width: calc(100% - 250px);
   float: left;
   padding: 0.33333em 3.33333em; }
+  @media all and (max-width: 63.938em) {
+    .container__col--left {
+      width: 100%; } }
+  @media all and (max-width: 37.438em) {
+    .container__col--left {
+      padding: 1.66667em; } }
 .container__col--right {
   width: 250px;
   float: left; }
+  @media all and (max-width: 63.938em) {
+    .container__col--right {
+      display: none; } }
 
 nav {
   position: relative; }

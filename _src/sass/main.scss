@@ -8,7 +8,6 @@
 html {
     box-sizing: border-box;
     height: 100%;
-
 }
 *,
 *:after,
@@ -17,8 +16,14 @@ html {
 }
 body {
     background: #e6dfd9;
-    padding: 0 40px 40px;
-
+    padding: 0 rhythm(1.5) rhythm(1.5);
+    @include respond-to(37.438) {
+        font-size:90%;
+    }
+    @include respond-to(30) {
+        padding: 0 rhythm(.5) rhythm(.5);
+        font-size:87%;
+    }
 }
 img {
     max-width: 100%;
@@ -57,20 +62,36 @@ img {
     position: relative;
     img {
         vertical-align: bottom;
+        @include respond-to(63.938) {
+            max-width:380px;
+            padding-top: rhythm(1);
+        }
+        @include respond-to(30) {
+            width: 100%;
+        }
     }
     h2 {
         font-family: $subheading-font;
         font-weight: normal;
         text-transform: uppercase;
         color: #666666;
-        font-size: 22px;
-        line-height: 24px;
+        @include adjust-font-size-to(22px,1);
         letter-spacing: 0.8px;
+        @include respond-to(30) {
+            @include adjust-font-size-to(18px,1);
+        }
+    }
+    @include respond-to(63.938) {
+        width: 100%;
+        height: auto!important;
     }
 }
 .header__content-wrapper {
     position: absolute;
     bottom: 0;
+    @include respond-to(63.938) {
+        position: static;
+    }
 }
 .header__right {
     float: left;
@@ -79,6 +100,9 @@ img {
         position: relative;
         bottom: -27%;
         z-index: 2;
+    }
+    @include respond-to(63.938) {
+        display: none;
     }
 }
 .container {
@@ -102,10 +126,18 @@ img {
         background-image: linear-gradient(45deg, $accent2 25%, transparent 25%, transparent 75%, $accent2 75%, $accent2), linear-gradient(45deg, $accent2 25%, transparent 25%, transparent 75%, $accent2 75%, $accent2);
         background-size: 50px 50px;
         background-position: 0 0, 25px 25px;
+        @include respond-to(37.438) {
+            background-size: 25px 25px;
+            background-position: 0 0, 12.5px 12.5px;
+            height: 25px;
+        }
     }
     &:after {
         bottom: 0;
         top: auto;
+    }
+    @include respond-to(37.438) {
+        padding: rhythm(2) 0;
     }
 }
 .container__col {
@@ -113,10 +145,19 @@ img {
         width: calc(100% - 250px);
         float: left;
         padding: rhythm(.2) rhythm(2);
+        @include respond-to(63.938) {
+            width: 100%;
+        }
+        @include respond-to(37.438) {
+            padding: rhythm(1)
+        }
     }
     &--right {
         width: 250px;
         float: left;
+        @include respond-to(63.938) {
+            display: none;
+        }
     }
 }
 nav {

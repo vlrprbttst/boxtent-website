@@ -37,7 +37,20 @@ html {
 
 body {
   background: #e6dfd9;
-  padding: 0 40px 40px;
+  padding: 0 2.5em 2.5em;
+}
+
+@media all and (max-width: 37.438em) {
+  body {
+    font-size: 90%;
+  }
+}
+
+@media all and (max-width: 30em) {
+  body {
+    padding: 0 0.83333em 0.83333em;
+    font-size: 87%;
+  }
 }
 
 img {
@@ -89,19 +102,52 @@ img {
   vertical-align: bottom;
 }
 
+@media all and (max-width: 63.938em) {
+  .header__left img {
+    max-width: 380px;
+    padding-top: 1.66667em;
+  }
+}
+
+@media all and (max-width: 30em) {
+  .header__left img {
+    width: 100%;
+  }
+}
+
 .header__left h2 {
   font-family: "Comfortaa", cursive;
   font-weight: normal;
   text-transform: uppercase;
   color: #666666;
-  font-size: 22px;
-  line-height: 24px;
+  font-size: 1.22222em;
+  line-height: 1.36364em;
   letter-spacing: 0.8px;
+}
+
+@media all and (max-width: 30em) {
+  .header__left h2 {
+    font-size: 1em;
+    line-height: 1.66667em;
+  }
+}
+
+@media all and (max-width: 63.938em) {
+  .header__left {
+    width: 100%;
+    height: auto !important;
+  }
 }
 
 .header__content-wrapper {
   position: absolute;
   bottom: 0;
+}
+
+@media all and (max-width: 63.938em) {
+  .header__content-wrapper {
+    position: static;
+  }
 }
 
 .header__right {
@@ -113,4 +159,10 @@ img {
   position: relative;
   bottom: -27%;
   z-index: 2;
+}
+
+@media all and (max-width: 63.938em) {
+  .header__right {
+    display: none;
+  }
 }

@@ -15,6 +15,10 @@ $base-line-height: 30px;
         text-transform: uppercase;
         position:relative;
         top:-6px;
+        @include respond-to(30) {
+            margin: 0 0 rhythm(.4);
+            word-wrap: break-word;
+        }
     }
 
     h2 {

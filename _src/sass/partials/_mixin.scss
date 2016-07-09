@@ -9,7 +9,7 @@
 @mixin clearfix {
   &:after {
     content: "";
-    display: table; 
+    display: table;
     clear: both;
   }
 }
@@ -25,5 +25,5 @@
 //mediaquery shorthand: @include respond-to(480) {}
 
 @mixin respond-to($breakpoint) {
-    @media all and (max-width: $breakpoint + px) { @content; }
+    @media all and (max-width: $breakpoint + em) { @content; }
 }
