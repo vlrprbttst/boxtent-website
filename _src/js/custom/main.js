@@ -36,7 +36,7 @@ $(document).ready(function() {
     //bg size
     function bgSize() {
         var wHeight = $(window).innerHeight();
-        $(".background-component").css("height", (wHeight / 10) * 6);
+        $(".background-component").css("height", (wHeight / 10) * 7);
     }
 
     // sticky nav
