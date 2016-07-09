@@ -526,8 +526,8 @@ html {
   margin: 0 0 1.5em; }
   .container p b, .container p strong {
     font-weight: 700; }
-  .container p.trailing {
-    margin: 0 0 3em; }
+.container .trailing {
+  margin: 0 0 3em; }
 .container pre {
   margin: 0 0 2.66667em; }
 .container .page-ul {
@@ -544,7 +544,8 @@ html {
 .container code {
   font-size: 0.88889em;
   line-height: 1.875em;
-  padding: 1px 2px !important; }
+  padding: 1px 2px !important;
+  font-family: "Source Code Pro", monospace; }
 
 html {
   box-sizing: border-box;

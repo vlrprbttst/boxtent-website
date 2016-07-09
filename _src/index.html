@@ -34,7 +34,7 @@
             <img src="images/boxtent-illustration.svg" alt="BoxTent illustration">
         </div>
     </header>
-    
+
     <div class="container">
         <div class="container__col--left">
             <h1>
@@ -113,17 +113,13 @@
                     Boxtent comes with <b>jquery.1.9.1</b> by default.
                 </p>
 
-                <h4>
-                    run boxtent
-                </h4>
+                <h3>
+                    Run BoxTent
+                </h3>
                 <p class="trailing">
                     Now that you have it all installed, <code class="language-bash">cd</code> to the root of the project and type grunt, browse to <code class="language-bash">localhost:3000</code> and.. start coding! It is suggested to open two terminal windows (with GIT support) while working: one will be busy watching for changes to your codebase and live reloading the browser for you, the other will be useful for downloading assets via bower on the go, to perform manual grunt tasks or to push your commits online.
                 </p>
             </section>
-
-            <h1>
-                working with boxtent
-            </h1>
             <section id="folder-structure">
                 <h2>
                     Folder Structure
@@ -145,7 +141,7 @@
                 <p>
                     You always work on <code class="language-bash">_src</code> and never edit anything on <code class="language-bash">_dev</code> or <code class="language-bash">_site</code>. <br><br> <code class="language-bash">_dev</code> is the result of low-level automations such as sass compilation, autoprefixing, browser reloading and generally tasks suited for development. At this stage, your website will be easy to debug. <br><br>The <code class="language-bash">_site</code> folder instead, will be fully optimized with performance in mind. This is the code that will go live for your users. <br><br>If you don’t like the naming of the folders, you can change it by editing the path variables in the <code class="language-bash">gruntfile.js</code>:
                 </p>
-<pre><code class="language-javascript">grunt.initConfig({
+<pre class="trailing"><code class="language-javascript">grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
     //path variables
@@ -155,7 +151,12 @@
     ...
 </code></pre>
             </section>
-            <section id="development-stage">
+
+            <h1>
+                the development stage
+            </h1>
+
+
                 <h2>
                     The development stage
                 </h2>
@@ -163,49 +164,164 @@
                     While working on the source folder, there is a series of automations performed to help you build your website in a fast and smart way that suits development and debugging.
                 </p>
 
+                <section id="css">
+                    <h3>
+                        CSS
+                    </h3>
+
+                    <p>
+                        <code class="language-bash">.scss</code> files are compiled and autoprefixed in<code class="language-bash"> _dev/css/main.css</code>. <br><br>
+
+                        Sass compilation comes with Compass support but if you don’t need it, you can remove  the <code class="language-scss">@import "compass";</code> from your <code class="language-bash">main.scss</code> file and from the gruntfile. In case you want to use other sass plugins, just install the gems and update your gruntfile accordingly. For example, if you decide to use <a href="http://susy.oddbird.net/" target="_blank">Susy</a> as your grid system, in the terminal type <code class="language-bash">gem install susy</code>, then <code class="language-scss">@import "susy";</code> on the top of the <code class="language-bash">main.scss</code> file and edit your gruntfile like this:
+                    </p>
+    <pre><code class="language-javascript">sass: {
+        dist: {
+            options: {
+                style: 'nested', //no need for config.rb
+                compass: 'true',
+                // require: 'plugins?'
+                require: 'susy'
+                ...
+    </code></pre>
+                    <p>
+                        Autoprefixing is dynamic and configurable in the gruntfile. To read more about configuration options and more <a href="https://github.com/postcss/autoprefixer" target="_blank">click here</a>.
+                    </p>
+                </section> <!-- css -->
+
+
+
+                <section id="critical-css">
+                    <h3>
+                        Critical (AKA Above the Fold) CSS
+                    </h3>
+                    <p>
+                        Boxtent was created with performance in mind, and automatic above the fold css extraction and embedding is one of BoxTent features. Critical css is page-based, so it is created every time you save an <code class="language-bash">.html</code> file and every file is automatically named after its related page. It is then updated every time you edit your <code class="language-bash">.scss</code> files. The extracted css must be included on each page’s <code class="language-markup">&lt;head&gt;</code> wrapped around special comments like this:
+                    </p>
+    <pre><code class="language-markup">&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;BoxTent&lt;/title&gt;
+
+    &lt;!-- build:css:build inline --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;critical-css/index.css&quot;&gt;
+    &lt;!-- /build --&gt;
+    ...</code>
+    </pre>
+                <p>
+                    Paths of selectors such as <code class="language-css">@font-face</code> or <code class="language-css">background-image:url()</code> are automatically transformed in relative paths. If your website will not be hosted on a first level domain you will have <b>404</b> errors on the console because of wrong paths to these resources. To quickly solve this problem, uncomment <code class="language-javascript"> //ignore: ['@font-face',/url\(/]</code> in the gruntfile: this will exclude anything linking to assets in the above the fold CSS. <br><br> The CSS will be inlined only when <code class="language-bash">_site</code> is produced during the build stage. Notice that critical CSS is coupled with the main CSS file being appended and loaded asynchronously with a javascript function called <code class="language-javascript">loadCSS()</code> located in  <code class="language-markup">&lt;head&gt;</code>, <a href="https://github.com/filamentgroup/loadCSS" target="_blank">read more about it here</a>.
+                </p>
+            </section> <!-- critical css -->
+
+            <section id="fonts">
                 <h3>
-                    CSS
+                    Fonts
                 </h3>
-
                 <p>
-                    <code class="language-bash">.scss</code> files are compiled and autoprefixed in<code class="language-bash"> _dev/css/main.css</code>. <br><br>
+                    If you are using custom fonts, create a folder named <b>fonts</b> in the root of <code class="language-markup">_src</code>, then open the terminal and type <code class="language-markup">grunt copy:the_fonts</code> to move them in <code class="language-markup">_dev</code>. If you are using <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> instead, you should load them asynchronously using <a href="https://github.com/typekit/webfontloader" target="_blank">webfontloader</a>. You can look at the source code of this website to see how it is implemented.
+                </p>
+            </section>
 
-                    Sass compilation comes with Compass support but if you don’t need it, you can remove  the <code class="language-scss">@import "compass";</code> from your <code class="language-bash">main.scss</code> file and from the gruntfile. In case you want to use other sass plugins, just install the gems and update your gruntfile accordingly. For example, if you decide to use <a href="http://susy.oddbird.net/" target="_blank">Susy</a> as your grid system, in the terminal type <code class="language-bash">gem install susy</code>, then <code class="language-scss">@import "susy";</code> on the top of the <code class="language-bash">main.scss</code> file and edit your gruntfile like this:
-                </p>
-<pre><code class="language-javascript">sass: {
-    dist: {
-        options: {
-            style: 'nested', //no need for config.rb
-            compass: 'true',
-            // require: 'plugins?'
-            require: 'susy'
-            ...
-</code></pre>
-                <p>
-                    Autoprefixing is dynamic and configurable in the gruntfile. To read more about configuration options and more <a href="https://github.com/postcss/autoprefixer" target="_blank">click here</a>.
-                </p>
+            <section id="html">
                 <h3>
-                    Critical (AKA Above the Fold) CSS
+                    HTML
                 </h3>
                 <p>
-                    Boxtent was created with performance in mind, and automatic above the fold css extraction and embedding is one of BoxTent features. Critical css is page-based, so it is created every time you save an <code class="language-bash">.html</code> file and every file is automatically named after its related page. It is then updated every time you edit your <code class="language-bash">.scss</code> files. The extracted css must be included on each page’s <code class="language-markup">&lt;head&gt;</code> wrapped around special comments like this:
+                    During development, <code class="language-bash">.html</code> files are processed in <code class="language-bash">_dev</code> thanks to the <code class="language-bash">processhtml:dev</code> task processing <b>_includes</b>. You can find some default includes in the <b>_includes</b> folder. The workflow breaks if you don’t use includes, so you must use at least one. Using includes is highly suggested as it unclutters the main <code class="language-bash">.html</code> files.
                 </p>
-<pre><code class="language-markup">&lt;head&gt;
-&lt;meta charset=&quot;utf-8&quot;&gt;
-&lt;title&gt;BoxTent&lt;/title&gt;
-
-&lt;!-- build:css:build inline --&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;critical-css/index.css&quot;&gt;
-&lt;!-- /build --&gt;
-...</code>
-</pre>
-            <p>
-                Paths of selectors such as <code class="language-css">@font-face</code> or <code class="language-css">background-image:url()</code> are automatically transformed in relative paths. If your website will not be hosted on a first level domain you will have <b>404</b> errors on the console because of wrong paths to these resources. To quickly solve this problem, uncomment <code class="language-javascript"> //ignore: ['@font-face',/url\(/]</code> in the gruntfile: this will exclude anything linking to assets in the above the fold CSS. <br><br> The CSS will be inlined only when <code class="language-bash">_site</code> is produced during the build stage. Notice that critical CSS is coupled with the main CSS file being appended and loaded asynchronously with a javascript function called <code class="language-javascript">loadCSS()</code> located in  <code class="language-markup">&lt;head&gt;</code>, <a href="https://github.com/filamentgroup/loadCSS" target="_blank">read more about it here</a>.
-            </p>
+            </section>
 
 
-            </section> <!-- development stage -->
-        </div>
+
+            <section id="images">
+                <h3>
+                    Image assets
+                </h3>
+                <p>
+                    Save your image assets in the <code class="language-bash">_src/images</code> folder. They will be optimized and compressed  in <code class="language-bash">_dev/images/</code>. Supported file formats include <code class="language-bash">.gif</code>, <code class="language-bash">.jpg</code>, <code class="language-bash">.png</code> and <code class="language-bash">.svg</code>.
+                </p>
+            </section>
+
+            <section id="favicons">
+                <h3>
+                    Favicons
+                </h3>
+                <p>
+                    Favicons are important, and being compatible with all different types of browser and platform has become a difficult task (read more about <a href="https://css-tricks.com/favicon-quiz/" target="_blank">how crazy this has become</a>). I highly suggest using <a href="http://realfavicongenerator.net/" target="_blank">http://realfavicongenerator.net/</a> to automatically create all the needed favicons formats for maximum compatibility. Create a  folder named <code class="language-bash">favicons</code> in <code class="language-bash">_src/images</code> and drop them there (be sure grunt is running and watching): <code class="language-bash">imagemin</code> will move most of the files in <code class="language-bash">_dev</code> automatically. Not all files are image formats though, so to move the rest of the files as well, type <code class="language-bash">grunt copy:favicons</code> on your terminal. Don’t forget to paste the generated code provided by url in <code class="language-markup">&lt;head&gt;</code>. Be sure to check the paths and you’re good to go.
+                </p>
+            </section>
+
+            <section id="javascript">
+                <h3>
+                    Javascript
+                </h3>
+                <p class="trailing">
+                    Javascript libraries and plugins are managed via Bower, so if you need any, please install them with Bower. Most of the popular plugins are indexed and searchable in the <a href="https://bower.io/search/" target="_blank">Bower search page</a>. If you can’t find it there or if you are unsure of its name, you can look for a reference in the plugin’s website. Installing a library with Bower is done by typing <code class="language-bash">bower install name-of-the-library –-save-dev</code> in the terminal: this will download the repository of the library in the <code class="language-bash">bower_components</code> folder and will automatically update the <code class="language-bash">bower.json</code> file with the name and version of the dependency. <br><br>
+
+                    When the library is installed, browse to the unminified file of the .js library you just downloaded in the <code class="language-bash">bower_components</code> folder and update the <code class="language-bash">copy:bower</code> and the <code class="language-bash">concat:dist</code> tasks in the gruntfile with the right path to the library.<br><br>
+
+                    Also include the script in the <code class="language-bash">_includes/scripts.html</code> file, wrapping them in processhtml special comments. All the scripts will be concatenated and minified in a single production.min.js file during the build stage.<br><br>
+
+                    If the library you need is not installable with Bower, save the file in <code class="language-markup">_src/js/custom</code> and be sure that grunt is running so the watch task will copy the file in <code class="language-markup">_dev</code>. Even in this case, don’t forget to update the <code class="language-markup">concat:dist</code> task in the gruntfile with the path to the library and the <code class="language-markup">_includes/scripts.html</code> file as well.<br><br>
+
+                    To write custom javascript, use <code class="language-markup">_src/js/custom/main.js</code>.
+                </p>
+            </section>
+
+            <h1>
+                the build stage
+            </h1>
+
+
+                <section id="build-overview">
+                    <h2>
+                        overview
+                    </h2>
+                    <p>
+                        When you decide to push your code to production, type <code class="language-bash">grunt build</code> in the terminal to build the <code class="language-bash">_site</code>  package. There’s an additional layer of automations that will transform your development codebase in a more performant one suited for production. Here is what happens when you type grunt build.
+                    </p>
+
+                    <h3>
+                        Clean
+                    </h3>
+                    <p>
+                        The <code class="language-bash">_site</code> folder is completely wiped out, ready to be rebuilt.
+                    </p>
+
+                    <h3>
+                        Delete Sync
+                    </h3>
+                    <p>
+                        The delete_sync task checks for unmatched files between <code class="language-bash">_dev</code> and <code class="language-bash">_src</code>. If extra files are present, they are deleted to keep both folders clean and in sync. This is a dangerous task as this may delete important files, remove this task or edit it if needed. This applies only for <code class="language-bash">.html</code> and images files.
+                    </p>
+
+                    <h3>
+                        CSS and Critical CSS
+                    </h3>
+                    <p>
+                        <code class="language-bash">main.css</code> is minified and aggressively optimized by <a href="http://cssnano.co/" target="_blank">cssnano</a>, a <a href="http://postcss.org/" target="_blank">PostCSS</a> plugin. Critical css is automatically inlined in <code class="language-markup">&lt;head&gt;</code>.
+                    </p>
+
+                    <h3>
+                        HTML
+                    </h3>
+                    <p>
+                        All <code class="language-markup">.html</code> files are minified.
+                    </p>
+
+                    <h3>
+                        Image Assets
+                    </h3>
+                    <p>
+                        The already optimized images folder is automatically copied from <code class="language-markup">_dev</code>.
+                    </p>
+
+                    <h3>
+                        Javascript
+                    </h3>
+                    <p>
+                        All of your javascript assets are concatenated in a single file called <code class="language-markup">production.js</code>, which is then minified becoming <code class="language-markup">production.min.js</code>. All the single scripts lines you previously had in <code class="language-markup">_scripts.html</code> are automatically transformed in a single script path that points to the minified and concatenated file.
+                    </p>
+                </section>
+        </div><!-- col left -->
 
 
 
