@@ -107,7 +107,7 @@ $(document).ready(function() {
 
     WebFont.load({
         google: {
-            families: ['Bangers', 'Comfortaa', 'Source Code Pro:300', 'Source Sans Pro:400,700']
+            families: ['Bangers', 'Comfortaa', 'Source Code Pro:300', 'Source Sans Pro:400,600']
         }
     });
 
