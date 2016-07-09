@@ -142,3 +142,13 @@ $(document).ready(function() {
 
 ga('create', 'UA-80497857-1', 'auto');
 ga('send', 'pageview');
+
+//disqus
+(function() {  // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+
+    s.src = '//boxtent.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
