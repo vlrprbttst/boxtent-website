@@ -102,8 +102,7 @@
                     The plastic table-like item found in the middle of a pizza box is called a box tent and was patented in 1983. Many people in the biz now call it a pizza saver.
                 </blockquote>
                 <p>
-                    BoxTent is <b>a frontend workflow</b> that gives you the infrastructure to build your next website following modern web development best practices to deliver a <b>state of the art</b> product for your users.     <br><br>
-                    With the help of <a href="http://gruntjs.com/" target="_blank">Grunt</a> and <a href="https://bower.io/" target="_blank">Bower</a>, BoxTent <b>automates your workflow</b> and takes care of assets optimization, concatenation, minification and much more. BoxTent includes out of the box support for:
+                    BoxTent is <b>a frontend workflow</b> that gives you the infrastructure to build your next website following modern web development best practices to deliver a <b>state of the art</b> product to your users. With the help of <a href="http://gruntjs.com/" target="_blank">Grunt</a> and <a href="https://bower.io/" target="_blank">Bower</a>, BoxTent <b>automates your workflow</b> and takes care of assets optimization, concatenation, minification and much more. BoxTent includes out of the box support for:
                 </p>
                 <p>
                     <ul class="page-ul">
@@ -276,7 +275,7 @@
     ...</code>
     </pre>
                 <p>
-                    Paths of selectors such as <code class="language-css">@font-face</code> or <code class="language-css">background-image:url()</code> are automatically transformed in relative paths. If your website will not be hosted on a first level domain you will have <b>404</b> errors on the console because of wrong paths to these resources. To quickly solve this problem, uncomment <code class="language-javascript"> //ignore: ['@font-face',/url\(/]</code> in the gruntfile: this will exclude anything linking to assets in the above the fold CSS. <br><br> The CSS will be inlined only when <code class="language-bash">_site</code> is produced during the build stage. Notice that <b>critical CSS is coupled with the main CSS file being appended and loaded asynchronously</b> with a javascript function called <code class="language-javascript">loadCSS()</code> located in  <code class="language-markup">&lt;head&gt;</code>, <a href="https://github.com/filamentgroup/loadCSS" target="_blank">read more about it here</a>.
+                    Paths of selectors such as <code class="language-css">@font-face</code> or <code class="language-css">background-image: url()</code> are automatically transformed in relative paths. If your website will not be hosted on a first level domain you will have <b>404</b> errors on the console because of wrong paths to these resources. To quickly solve this problem, uncomment <code class="language-javascript"> //ignore: ['@font-face',/url\(/]</code> in the gruntfile: this will exclude anything linking to assets in the above the fold CSS. <br><br> The CSS will be inlined only when <code class="language-bash">_site</code> is produced during the build stage. Notice that <b>critical CSS is coupled with the main CSS file being appended and loaded asynchronously</b> with a javascript function called <code class="language-javascript">loadCSS()</code> located in  <code class="language-markup">&lt;head&gt;</code>, <a href="https://github.com/filamentgroup/loadCSS" target="_blank">read more about it here</a>.
                 </p>
                 <div class="alert--danger trailing">
                     Loading the main CSS file asynchronously may cause some presentational javascript problems, as if you're using stylesheets that are loaded AFTER the scripts, or the layout of the page depends on image sizes or other content, the ready event will hit when the page is not in its final rendering state.
@@ -395,11 +394,11 @@
                         All <code class="language-markup">.html</code> files are <b>minified</b>.
                     </p>
                     <div class="alert--danger">
-                        be sure your HTML doesn't rely of forced white spaces like <code>&amp;nbsp;</code> as <code>htmlmin</code> will strip that off.
+                        Be sure your HTML doesn't rely on non-breaking space: <code>&amp;nbsp;</code>. <code>htmlmin</code> will strip that off.
                     </div>
 
                     <h3>
-                        Image Assets and Fonts <code>[grunt copy:images && grunt copy:fonts_build]</code>
+                        Image assets and Fonts <code>[grunt copy:images && grunt copy:fonts_build]</code>
                     </h3>
                     <p>
                         The already optimized images folder is automatically copied from <code class="language-markup">_dev</code> as well as the fonts folder (if present).
