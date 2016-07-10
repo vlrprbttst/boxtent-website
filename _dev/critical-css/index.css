@@ -15,8 +15,16 @@ header {
   display: block;
 }
 
+a {
+  background-color: transparent;
+}
+
 img {
   border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
 }
 
 html {
@@ -79,6 +87,23 @@ img {
   background-image: linear-gradient(to top, #e6dfd9 10%, rgba(0, 0, 0, 0) 50%);
   content: "";
   height: 100%;
+}
+
+.github-corner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2000;
+}
+
+@media (max-width: 500px) {
+  .github-corner {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+
 }
 
 .header {

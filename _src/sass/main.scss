@@ -18,11 +18,11 @@ body {
     background: #e6dfd9;
     padding: 0 rhythm(1.5) rhythm(1.5);
     @include respond-to(37.438) {
-        font-size:90%;
+        font-size: 90%;
     }
     @include respond-to(30) {
         padding: 0 rhythm(.5) rhythm(.5);
-        font-size:87%;
+        font-size: 87%;
     }
 }
 img {
@@ -51,6 +51,38 @@ img {
         height: 100%;
     }
 }
+.github-corner {
+    position:fixed;
+    top: 0;
+    right: 0;
+    z-index:2000;
+    @media (max-width:500px) {display: none;}
+}
+.github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+}
+@keyframes octocat-wave {
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+    20%,
+    60% {
+        transform: rotate(-25deg);
+    }
+    40%,
+    80% {
+        transform: rotate(10deg);
+    }
+}
+@media (max-width:500px) {
+    .github-corner:hover .octo-arm {
+        animation: none;
+    }
+    .github-corner .octo-arm {
+        animation: octocat-wave 560ms ease-in-out;
+    }
+}
 .header {
     max-width: 1240px;
     margin: 0 auto;
@@ -63,7 +95,7 @@ img {
     img {
         vertical-align: bottom;
         @include respond-to(63.938) {
-            max-width:380px;
+            max-width: 380px;
             padding-top: rhythm(1);
         }
         @include respond-to(30) {
@@ -78,7 +110,7 @@ img {
         @include adjust-font-size-to(22px,1);
         letter-spacing: 0.8px;
         @include respond-to(30) {
-            @include adjust-font-size-to(18px,1);
+             @include adjust-font-size-to(18px,1);
         }
     }
     @include respond-to(63.938) {
@@ -149,7 +181,7 @@ img {
             width: 100%;
         }
         @include respond-to(37.438) {
-            padding: rhythm(1)
+            padding: rhythm(1);
         }
     }
     &--right {
@@ -198,7 +230,6 @@ nav {
     }
     @include respond-to(63.938) {
         display: none;
-
     }
 }
 .container__col--left a,
@@ -209,15 +240,15 @@ nav {
 .alert {
     &--danger {
         @include alert-danger;
-        padding:rhythm(.5) rhythm(1);
-        margin-bottom:rhythm(1);
+        padding: rhythm(.5) rhythm(1);
+        margin-bottom: rhythm(1);
         font-family: $text-font;
         @include adjust-font-size-to(16px,1);
     }
     &--warning {
         @include alert-warning;
-        padding:rhythm(1);
-        margin-bottom:rhythm(1);
+        padding: rhythm(1);
+        margin-bottom: rhythm(1);
         font-family: $text-font;
         @include adjust-font-size-to(16px,1);
     }
