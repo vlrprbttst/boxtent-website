@@ -507,6 +507,10 @@ html {
   position: relative;
   top: -4px;
   margin: 0 0 0.66667em; }
+  .container h3 code {
+    font-size: 0.66667em;
+    line-height: 2.5em;
+    font-style: italic; }
 .container h4 {
   font-family: "Source Sans Pro", sans-serif;
   color: #111;
@@ -550,6 +554,17 @@ html {
   line-height: 1.875em;
   padding: 1px 2px !important;
   font-family: "Source Code Pro", monospace; }
+.container blockquote {
+  padding: 0 0 0 1em;
+  color: #444444;
+  border-left: 3px solid #dddddd;
+  font-family: "Source Sans Pro", sans-serif;
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1em;
+  line-height: 1.66667em;
+  letter-spacing: .1px;
+  margin: 0 0 2em; }
 
 html {
   box-sizing: border-box;
@@ -743,5 +758,26 @@ nav {
 .container__col--left a:active,
 .container__col--left a:visited {
   color: #248747; }
+
+.alert--danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  border-radius: 4px;
+  padding: 0.83333em 1.66667em;
+  margin-bottom: 1.66667em;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 0.88889em;
+  line-height: 1.875em; }
+.alert--warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border: 1px solid #faebcc;
+  border-radius: 4px;
+  padding: 1.66667em;
+  margin-bottom: 1.66667em;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 0.88889em;
+  line-height: 1.875em; }
 
 /*# sourceMappingURL=main.css.map */

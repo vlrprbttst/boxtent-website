@@ -206,3 +206,19 @@ nav {
 .container__col--left a:visited {
     color: $accent2;
 }
+.alert {
+    &--danger {
+        @include alert-danger;
+        padding:rhythm(.5) rhythm(1);
+        margin-bottom:rhythm(1);
+        font-family: $text-font;
+        @include adjust-font-size-to(16px,1);
+    }
+    &--warning {
+        @include alert-warning;
+        padding:rhythm(1);
+        margin-bottom:rhythm(1);
+        font-family: $text-font;
+        @include adjust-font-size-to(16px,1);
+    }
+}

@@ -40,6 +40,10 @@ $base-line-height: 30px;
         position:relative;
         top:-4px;
         margin: 0 0 rhythm(.4);
+        code {
+            @include adjust-font-size-to(12px,1);
+            font-style: italic; 
+        }
     }
 
     h4 {
@@ -94,5 +98,17 @@ $base-line-height: 30px;
         @include adjust-font-size-to(16px,1);
         padding:1px 2px !important;
         font-family: $code-font;
+    }
+
+    blockquote {
+        padding: 0 0 0 rhythm(.6);
+        color:lighten($text,20%);
+        border-left: 3px solid lighten($text,80%);
+        font-family: $text-font;
+        margin: 0;
+        font-family: $text-font;
+        @include adjust-font-size-to(18px,1);
+        letter-spacing:.1px;
+        margin: 0 0 rhythm(1.2);
     }
 }

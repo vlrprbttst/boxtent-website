@@ -194,7 +194,7 @@ module.exports = function(grunt) {
         browserSync: {
             dev: {
                 bsFiles: {
-                    src: ['<%= dev %>/**', '<%= source %>/!.sass-cache']
+                    src: ['<%= dev %>/**','<%= source %>/_includes/**', '<%= source %>/!.sass-cache']
                 },
                 options: {
                     server: {
