@@ -207,6 +207,12 @@ nav {
             text-transform: uppercase;
             @include adjust-font-size-to(18px,1);
             margin: 0 0 rhythm(1);
+            &.backtotop a {
+                @include adjust-font-size-to(16px,1);
+                color:lighten($text-light,30%);
+                text-transform: none;
+                font-family: $text-font;
+            }
             > ul li {
                 margin-bottom: 0;
                 a {

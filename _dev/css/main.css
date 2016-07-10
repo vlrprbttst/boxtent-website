@@ -539,7 +539,7 @@ html {
 .container pre {
   margin: 0 0 2.66667em; }
 .container .page-ul {
-  margin: 0 0 3.33333em;
+  margin: 1.5em 0;
   padding: 0 0 0 0.83333em; }
   .container .page-ul li {
     font-family: "Source Sans Pro", sans-serif;
@@ -763,6 +763,12 @@ nav {
       font-size: 1em;
       line-height: 1.66667em;
       margin: 0 0 1.66667em; }
+      nav ul li.backtotop a {
+        font-size: 0.88889em;
+        line-height: 1.875em;
+        color: #b3b3b3;
+        text-transform: none;
+        font-family: "Source Sans Pro", sans-serif; }
       nav ul li > ul li {
         margin-bottom: 0; }
         nav ul li > ul li a {

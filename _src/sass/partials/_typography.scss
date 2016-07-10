@@ -82,8 +82,8 @@ $base-line-height: 30px;
     }
 
     .page-ul {
-        margin: 0 0 rhythm(2);
-        padding:0 0 0  rhythm(.5);
+        margin: rhythm(.9) 0;
+        padding:0 0 0 rhythm(.5);
         li {
             font-family: $text-font;
             color:$text;
