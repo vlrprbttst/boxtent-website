@@ -20,8 +20,16 @@ module.exports = function(grunt) {
              options: {
                  base: './_dev',
                  css: '_dev/css/main.css',
-                 width: 1240,
-                 height: 1200,
+                 dimensions: [{
+                    height: 600,
+                    width: 900
+                }, {
+                    height: 1200,
+                    width: 900
+                }, {
+                    height: 1000,
+                    width: 1240
+                }],
                  //ignore: ['@font-face',/url\(/]
              },
              src: '_dev/' + name + '.html',
@@ -233,7 +241,7 @@ module.exports = function(grunt) {
         delete_sync: {
             dist: {
                 cwd: '<%= dev %>',
-                src: ['**/*.html', '!**/*.css', '!_includes/**/*.html', '!js/**/*.js', '!sass/**/*.scss'],
+                src: ['**/*.html', '**/*.{png,jpg,gif,svg}', '!**/*.css', '!_includes/**/*.html', '!js/**/*.js', '!sass/**/*.scss'],
                 syncWith: '<%= source %>'
             }
         },
