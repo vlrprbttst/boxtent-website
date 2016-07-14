@@ -21,8 +21,8 @@ module.exports = function(grunt) {
                  base: './_dev',
                  css: '_dev/css/main.css',
                  dimensions: [{
-                    height: 600,
-                    width: 900
+                    height: 768,
+                    width: 1024
                 }, {
                     height: 1200,
                     width: 900

@@ -56,25 +56,17 @@ $(document).ready(function() {
         });
     }
 
-    //smoothscroll
-    $('a[href^="#"]').on('click', function(e) {
-        $(document).off("scroll");
-        e.preventDefault();
-
-        $('a').each(function() {
-            $(this).removeClass('active');
-        })
-        $(this).addClass('active');
-
-        var target = this.hash,
-            menu = target;
-        $target = $(target);
-        $('html, body').stop().animate({
-            'scrollTop': $target.offset().top - 20
-        }, 600, function() {
-            window.location.hash = target;
-            $(document).on("scroll", onScroll);
-        });
+    $('a[href*="#"]:not([href="#"])').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html, body').animate({
+            scrollTop: target.offset().top - 20
+          }, 1000);
+          return false;
+        }
+      }
     });
 
     //active link on nav
