@@ -88,7 +88,7 @@ $(document).ready(function() {
             var currLink = $(this);
             var refElement = $(currLink.attr("href"));
             if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-                $('nav a').removeClass("active");
+                //$('nav a').removeClass("active"); !??!!?
                 currLink.addClass("active");
             } else {
                 currLink.removeClass("active");
@@ -107,7 +107,7 @@ $(document).ready(function() {
 
     WebFont.load({
         google: {
-            families: ['Bangers', 'Comfortaa', 'Source Code Pro:300', 'Source Sans Pro:400,600']
+            families: ['Bangers', 'Comfortaa', 'Source Code Pro:300', 'Source Sans Pro:400,700']
         }
     });
 
@@ -144,7 +144,7 @@ ga('create', 'UA-80497857-1', 'auto');
 ga('send', 'pageview');
 
 //disqus
-(function() {  
+(function() {  // DON'T EDIT BELOW THIS LINE
     var d = document, s = d.createElement('script');
 
     s.src = '//boxtent.disqus.com/embed.js';
