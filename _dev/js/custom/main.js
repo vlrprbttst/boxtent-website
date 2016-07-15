@@ -115,7 +115,6 @@ onloadCSS(stylesheet, function() {
     //header eq height
     bgSize();
     stickyNav();
-    $('.header > div').matchHeight();
 
 }); // stylesheet has loaded
 
@@ -126,6 +125,7 @@ RESIZE FUNCTIONS
 $(window).smartresize(function() {
     bgSize();
     stickyNav();
+    $('.header > div').matchHeight();
 });
 
 
