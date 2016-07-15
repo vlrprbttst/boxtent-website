@@ -114,17 +114,13 @@ onloadCSS(stylesheet, function() {
     //header eq height
     bgSize();
     stickyNav();
-    $('.header > div').addClass("headerHeight");
+    $('.header > div').addClass("headerHeight").removeClass("headerHeight").matchHeight();;
+
 }); // stylesheet has loaded
 
 /*********************
 RESIZE FUNCTIONS
 **********************/
-
-$( window ).on( "resize", function( event ) {
-    $('.header > div').removeClass("headerHeight").matchHeight();
-    $( this ).off( event );
-});
 
 $(window).smartresize(function() {
     bgSize();
