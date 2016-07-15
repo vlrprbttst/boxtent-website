@@ -1,3 +1,7 @@
+/*********************
+SMART RESIZE FUNCTION
+**********************/
+
 (function($, sr) {
     var debounce = function(func, threshold, execAsap) {
             var timeout;
@@ -27,97 +31,103 @@
 
 })(jQuery, 'smartresize');
 
-$(document).ready(function() {
+/*********************
+GLOBAL FUNCTIONS
+**********************/
 
-    /*********************
-    GLOBAL FUNCTIONS
-    **********************/
+//bg size
 
-    //bg size
-    function bgSize() {
-        var wHeight = $(window).innerHeight();
-        $(".background-component").css("height", (wHeight / 10) * 7);
-    }
+function bgSize() {
+    var wHeight = $(window).innerHeight();
+    $(".background-component").css("height", (wHeight / 10) * 7);
+}
 
-    // sticky nav
+// sticky nav
 
-    function stickyNav() {
+function stickyNav() {
 
-        var headerHeight = $('header').outerHeight();
-        var containerPT = $(".container").css('paddingTop').replace(/[^-\d\.]/g, '');
-        var totalSpace = (parseInt(headerHeight) + parseInt(containerPT));
+    var headerHeight = $('header').outerHeight();
+    var containerPT = $(".container").css('paddingTop').replace(/[^-\d\.]/g, '');
+    var totalSpace = (parseInt(headerHeight) + parseInt(containerPT));
 
-        $(window).scroll(function() {
-            if ($(window).scrollTop() >= totalSpace) {
-                $('nav').addClass("sticky");
-            } else {
-                $('nav').removeClass("sticky");
-            }
-        });
-    }
+    $(window).scroll(function() {
+        if ($(window).scrollTop() >= totalSpace) {
+            $('nav').addClass("sticky");
+        } else {
+            $('nav').removeClass("sticky");
+        }
+    });
+}
 
-    $('a[href*="#"]:not([href="#"])').click(function() {
-      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+// smooth scroll
+
+$('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
         var target = $(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
         if (target.length) {
-          $('html, body').animate({
-            scrollTop: target.offset().top - 20
-          }, 1000);
-          return false;
+            $('html, body').animate({
+                scrollTop: target.offset().top - 20
+            }, 1000);
+            return false;
         }
-      }
-    });
-
-    //active link on nav
-    $(document).on("scroll", onScroll);
-
-    function onScroll(event) {
-        var scrollPos = $(document).scrollTop();
-        var navLinks = $('nav a');
-
-        $('nav a').each(function() {
-            var currLink = $(this);
-            var refElement = $(currLink.attr("href"));
-            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-                //$('nav a').removeClass("active"); !??!!?
-                currLink.addClass("active");
-            } else {
-                currLink.removeClass("active");
-            }
-        });
-
     }
+});
 
-    //fit text
-    $(".background-component").fitText(4, {
-        minFontSize: '12px',
-        maxFontSize: '30px'
-    });
+// active link on nav
 
-    //async google font loading
+$(document).on("scroll", onScroll);
 
-    WebFont.load({
-        google: {
-            families: ['Bangers', 'Comfortaa', 'Source Code Pro:300', 'Source Sans Pro:400,700']
+function onScroll(event) {
+    var scrollPos = $(document).scrollTop();
+    var navLinks = $('nav a');
+
+    $('nav a').each(function() {
+        var currLink = $(this);
+        var refElement = $(currLink.attr("href"));
+        if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+            //$('nav a').removeClass("active"); !??!!?
+            currLink.addClass("active");
+        } else {
+            currLink.removeClass("active");
         }
     });
+}
+
+//fit text
+$(".background-component").fitText(4, {
+    minFontSize: '12px',
+    maxFontSize: '30px'
+});
+
+// async google font loading
+
+WebFont.load({
+    google: {
+        families: ['Bangers', 'Comfortaa', 'Source Code Pro:300', 'Source Sans Pro:400,700']
+    }
+});
+
+var stylesheet = loadCSS("css/main.css");
+
+onloadCSS(stylesheet, function() {
 
     //header eq height
-    $('.header > div').matchHeight();
     bgSize();
     stickyNav();
+    $('.header > div').matchHeight();
 
-    /*********************
-    RESIZE FUNCTIONS
-    **********************/
-    $(window).smartresize(function() {
-        bgSize();
-        stickyNav();
-    });
+}); // stylesheet has loaded
 
+/*********************
+RESIZE FUNCTIONS
+**********************/
 
-}); //document ready
+$(window).smartresize(function() {
+    bgSize();
+    stickyNav();
+});
+
 
 // analytics
 (function(i, s, o, g, r, a, m) {
@@ -136,8 +146,9 @@ ga('create', 'UA-80497857-1', 'auto');
 ga('send', 'pageview');
 
 //disqus
-(function() {  // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
+(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document,
+        s = d.createElement('script');
 
     s.src = '//boxtent.disqus.com/embed.js';
 
