@@ -121,10 +121,15 @@ onloadCSS(stylesheet, function() {
 RESIZE FUNCTIONS
 **********************/
 
+$( window ).on( "resize", function( event ) {
+    $('.header > div').removeClass("headerHeight").matchHeight();
+    $( this ).off( event );
+});
+
 $(window).smartresize(function() {
     bgSize();
     stickyNav();
-    $('.header > div').removeClass("headerHeight").matchHeight();
+    $('.header > div').matchHeight();
 });
 
 
@@ -145,7 +150,7 @@ ga('create', 'UA-80497857-1', 'auto');
 ga('send', 'pageview');
 
 //disqus
-(function() { // DON'T EDIT BELOW THIS LINE
+(function() {
     var d = document,
         s = d.createElement('script');
 
