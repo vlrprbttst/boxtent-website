@@ -109,13 +109,12 @@ WebFont.load({
 });
 
 var stylesheet = loadCSS("css/main.css");
-
 onloadCSS(stylesheet, function() {
 
     //header eq height
     bgSize();
     stickyNav();
-
+    $('.header > div').addClass("headerHeight");
 }); // stylesheet has loaded
 
 /*********************
@@ -125,7 +124,7 @@ RESIZE FUNCTIONS
 $(window).smartresize(function() {
     bgSize();
     stickyNav();
-    $('.header > div').matchHeight();
+    $('.header > div').removeClass("headerHeight").matchHeight();
 });
 
 
