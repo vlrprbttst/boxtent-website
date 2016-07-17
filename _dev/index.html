@@ -324,7 +324,7 @@
                     Fonts <code>[grunt copy:the_fonts]</code>
                 </h3>
                 <p>
-                    If you are using custom fonts, create a folder named <b>fonts</b> in the root of <code class="language-markup">_src</code>, then open the terminal and type <code class="language-markup">grunt copy:the_fonts</code> to move them in <code class="language-markup">_dev</code>. If you are using <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> instead, you should load them asynchronously using <a href="https://github.com/typekit/webfontloader" target="_blank">webfontloader</a>. You can look at the <a href="https://github.com/vlrprbttst/boxtent-website/blob/master/_src/js/custom/main.js#L106-L112" target="_blank">source code of this website</a> to see how it is implemented.
+                    If you are using custom fonts, create a folder named <b>fonts</b> in the root of <code class="language-markup">_src</code>, then open the terminal and type <code class="language-markup">grunt copy:the_fonts</code> to move them in <code class="language-markup">_dev</code>. If you are using <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> instead, you should load them asynchronously using <a href="https://github.com/typekit/webfontloader" target="_blank">webfontloader</a>. You can look at the <a href="https://github.com/vlrprbttst/boxtent-website/blob/master/_src/js/custom/main.js" target="_blank">source code of this website</a> to see how it is implemented.
                 </p>
             </section>
 
@@ -373,13 +373,13 @@
                 <p class="trailing">
                     Javascript libraries and plugins are managed via Bower, so if you need any, <b>please install them with Bower</b>. Most of the popular plugins are indexed and searchable in the <a href="https://bower.io/search/" target="_blank">Bower search page</a>. If you can’t find it there or if you are unsure of its name, you can look for a reference in the plugin’s website. Installing a library with Bower is done by typing <code class="language-bash">bower install name-of-the-library –-save-dev</code> in the terminal: this will download the repository of the library in the <code class="language-bash">bower_components</code> folder and will automatically update the <code class="language-bash">bower.json</code> file with the name and version of the dependency. <br><br>
 
-                    When the library is installed, browse to the <b>unminified file</b> of the .js library you just downloaded in the <code class="language-bash">bower_components</code> folder and update the <code class="language-bash">copy:bower</code> and the <code class="language-bash">concat:dist</code> tasks in the gruntfile with the <b>right path to the unminified file of the library</b>.<br><br>
+                    When the library is installed, browse to the <b>unminified file</b> of the <code class="language-markup">.js</code> library you just downloaded in the <code class="language-bash">bower_components</code> folder and update the <code class="language-bash">copy:bower</code> and the <code class="language-bash">concat:dist</code> tasks in the gruntfile with the <b>right path to the unminified file of the library</b>.<br><br>
 
-                    Also include the script in the <code class="language-bash">_includes/scripts.html</code> file, <b>wrapping them in processhtml special comments</b>. All the scripts will be concatenated and minified in a single <code class="language-bash">production.min.js</code> file during the build stage.<br><br>
+                    Also include the script in the <code class="language-bash">_includes/scripts.html</code> file, <b>wrapping them in processhtml special comments</b>. Now type <code class="language-bash">grunt copy:bower</code> and you are good to go.<br><br>
 
                     If the library you need is not installable with Bower, save the file in <code class="language-markup">_src/js/custom</code> and <b>make sure that grunt is running</b> so the watch task will copy the file in <code class="language-markup">_dev</code>. Even in this case, don’t forget to update the <code class="language-markup">concat:dist</code> task in the gruntfile with the path to the library and the <code class="language-markup">_includes/scripts.html</code> file as well.<br><br>
 
-                    To write custom javascript, use <code class="language-markup">_src/js/custom/main.js</code>.
+                    To write custom javascript and write your init functions, use <code class="language-markup">_src/js/custom/main.js</code>. If you need more files, just create and use them in <code class="language-markup">_src/js/custom/</code>.
                 </p>
 
             </section>
@@ -443,10 +443,91 @@
                     <h3>
                         Javascript <code>[grunt processhtml:build && grunt concat && grunt uglify]</code>
                     </h3>
-                    <p>
+                    <p class="trailing">
                         All of your javascript assets are <b>concatenated in a single file</b> called <code class="language-markup">production.js</code>, which is then minified becoming <code class="language-markup">production.min.js</code>. All the single scripts lines you previously had in <code class="language-markup">_scripts.html</code> are automatically transformed in <b>a single script path</b> that points to the minified and concatenated file.
                     </p>
                 </section>
+
+                <h1>
+                    more
+                </h1>
+
+
+                    <section id="credits">
+                        <h2>
+                            credits
+                        </h2>
+                        <p>
+                            The real stars of BoxTent are the Grunt plugins used in this project that were created by the web community. If you want to know more and dig deeper into each plugin, here's a list of what's under Boxtent's hood:
+                        </p>
+                            <ul class="page-ul">
+                                <li>
+                                    <a href="https://github.com/BrowserSync/grunt-browser-sync" target="_blank">grunt-browser-sync</a>: browser live reloading and URL pushing
+                                </li>
+                                <li>
+                                    <a href="https://github.com/gruntjs/grunt-contrib-clean" target="_blank">grunt-contrib-clean</a>: cleaning files and folders
+                                </li>
+                                <li>
+                                    <a href="https://github.com/gruntjs/grunt-contrib-concat" target="_blank">grunt-contrib-concat</a>: concatenating javascript files
+                                </li>
+                                <li>
+                                    <a href="https://github.com/gruntjs/grunt-contrib-copy" target="_blank">grunt-contrib-copy</a>: copying files and folders
+                                </li>
+                                <li>
+                                    <a href="https://github.com/gruntjs/grunt-contrib-htmlmin" target="_blank">grunt-contrib-htmlmin</a>: minifying HTML
+                                </li>
+                                <li>
+                                    <a href="https://github.com/gruntjs/grunt-contrib-imagemin" target="_blank">grunt-contrib-imagemin</a>: compressing and optimizing images
+                                </li>
+                                <li>
+                                    <a href="https://github.com/gruntjs/grunt-contrib-sass" target="_blank">grunt-contrib-sass</a>: <code class="language-markup">.scss</code> compilation
+                                </li>
+                                <li>
+                                    <a href="https://github.com/gruntjs/grunt-contrib-uglify" target="_blank">grunt-contrib-uglify</a>: minifying javascript
+                                </li>
+                                <li>
+                                    <a href="https://github.com/gruntjs/grunt-contrib-watch" target="_blank">grunt-contrib-watch</a>: live watching for changes
+                                </li>
+                                <li>
+                                    <a href="https://github.com/addyosmani/critical" target="_blank">grunt-critical</a>: extracting critical above the fold CSS
+                                </li>
+                                <li>
+                                    <a href="https://github.com/taylorcode/grunt-delete-sync" target="_blank">grunt-delete-sync</a>: keeping folders in sync by deleting extra files
+                                </li>
+                                <li>
+                                    <a href="https://github.com/tschaub/grunt-newer" target="_blank">grunt-newer</a>: processing grunt tasks only on newly edited  files
+                                </li>
+                                <li>
+                                    <a href="https://github.com/nDmitry/grunt-postcss" target="_blank">grunt-postcss</a>: rocking the CSS minification with <a href="http://cssnano.co/" target="_blank">cssnano</a> and browser specific autoprefixing with <a href="https://github.com/postcss/autoprefixer" target="_blank">autoprefixer</a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/dciccale/grunt-processhtml" target="_blank">grunt-processhtml</a>: making possible the use of includes, transforming several assets paths into a single one, inlining above the fold CSS
+                                </li>
+                            </ul>
+                            <p class="trailing">
+                                Special thanks to <a href="http://www.gianzo.com/" target="_blank">Gianzo</a> from <a href="http://www.ohmyboot.it/" target="_blank">Ohmyboot clothing</a> for the cool BoxTent illustration.
+                            </p>
+                    </section>
+
+                    <section id="disclaimer">
+                        <h2>
+                            disclaimer
+                        </h2>
+                        <p>
+                            Boxtent was "assembled" by <a href="http://valeriopierbattista.com">Valerio Pierbattista</a> and it was born as a starter kit for personal projects. I decided to shape it, <a href="https://github.com/vlrprbttst/BoxTent" target="_blank">open-source it</a> and create a documentation website mainly for fun, but also to let others use it and collect some feedback. And yes, I am aware of <a href="http://yeoman.io/" target="_blank">Yeoman</a> and its thousands of generators and I'm sure that it would be the first choice of most, but hey ... whatever ;)
+                        </p>
+                        <p>
+                            <b>BoxTent was tested mainly on one page websites</b>, it is maintained by me and it is frequently updated with bug fixes, so consider this before using it. However, Boxtent is made to be a starter kit, therefore extending, adding or removing features should be pretty easy to do.
+                        </p>
+                        <p>
+                            <b><a href="https://github.com/vlrprbttst/BoxTent"> Fork or clone Boxtent from GitHub</a> and start coding now!</b>
+                        </p>
+                    </section>
+
+
+
+
+
                 <div id="disqus_thread"></div>
         </div><!-- col left -->
         <div class="container__col--right">
@@ -500,6 +581,20 @@
             <ul>
                 <li>
                     <a href="#build-overview">Overview</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            more
+            <ul>
+                <li>
+                    <a href="#credits">Credits</a>
+                </li>
+                <li>
+                    <a href="#disclaimer">Disclaimer</a>
+                </li>
+                <li>
+                    <a href="#disqus_thread">Disqus</a>
                 </li>
             </ul>
         </li>

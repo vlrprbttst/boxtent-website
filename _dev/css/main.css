@@ -535,7 +535,7 @@ html {
   .container p b, .container p strong {
     font-weight: 600; }
 .container .trailing {
-  margin: 0 0 3em; }
+  margin: 0 0 3em !important; }
 .container pre {
   margin: 0 0 2.66667em; }
 .container .page-ul {
