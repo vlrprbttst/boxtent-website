@@ -139,7 +139,7 @@
                     </ul>
                 </p>
                 <p>
-                    BoxTent is perfect for crafting small and simple <code class="language-markup">.html</code>, <code class="language-markup">.css</code> and <code class="language-markup">.js</code> <b>performant</b> website (like this one) but can be easily extended to suit more complex needs as well, leaving you the time to focus on what really matters: <b>your code</b>. <br><br>
+                    BoxTent is perfect for crafting small and simple <code class="language-markup">.html</code>, <code class="language-markup">.css</code> and <code class="language-markup">.js</code> <b>performant</b> website (<a href="https://github.com/vlrprbttst/boxtent-website" target="_blank">like this one</a>) but can be easily extended to suit more complex needs as well, leaving you the time to focus on what really matters: <b>your code</b>. <br><br>
                     In a world of complex frontend workflows, frameworks and tools, BoxTent tries to cover all the basic needs of frontend developing, <b>without over complicating your life</b>. Not all websites need super complex setups, but all websites deserve to be created with <b>performance in mind</b>, using <b>modern tools</b> and with an infrastructure that grants <b>speed</b> and <b>productivity</b>.
                 </p>
             </section> <!-- introduction -->
@@ -149,7 +149,7 @@
                     what's in the box
                 </h2>
                 <p>
-                    BoxTent is presented as a blank canvas, not a framework. It promotes a defined workflow and comes with a very basic HTML5 template, a folder structure and some starting files to work with. All you need to do is <a href="https://github.com/vlrprbttst/BoxTent" target="_blank">download or fork the repository from github</a> and install the necessary dependencies to start coding right away.
+                    BoxTent is presented as a blank canvas, not a framework. It promotes a defined workflow and comes with a very basic HTML5 template, a folder structure and some starting files to work with. All you need to do is <a href="https://github.com/vlrprbttst/BoxTent" target="_blank">download or fork the repository from github</a> and install the necessary dependencies to start coding right away. You are the one is control of the technology, the plugins and the frameworks you want to use for your project.
                 </p>
                 <p>
                     This website is both the BoxTent official documentation and an example of its usage. If you have any doubt, be sure to <a href="https://github.com/vlrprbttst/boxtent-website" target="_blank">check its source code on github</a>.
@@ -208,14 +208,14 @@
                     </div>
 
                 <div class="alert--warning trailing">
-                    BoxTent comes with <b>jquery 3.0.0</b> by default. Type <code>bower uninstall jquery --save-dev</code> and then <code>bower install jquery theVersion.You.Want --save-dev</code> to get a version of jQuery of your choosing.
+                    BoxTent comes with <b>jquery 3.0.0</b> by default. Type <code>bower uninstall jquery --save-dev</code> and then <code>bower install jquery x.y.z --save-dev</code> to get a version of jQuery of your choosing.
                 </div>
 
                 <h3>
                     Run BoxTent
                 </h3>
                 <p>
-                    Now that you have it all installed, <code class="language-bash">cd</code> to the root of the project and type <code class="language-bash">grunt</code>, browse to <code class="language-bash">localhost:3000</code> and.. <b>start coding</b>! It is suggested to open two terminal windows (with <b>GIT</b> support) while working: one will be busy watching for changes to your codebase and live reloading the browser for you, the other will be useful for downloading assets via bower on the go, to perform manual grunt tasks or to push your commits online.
+                    Now that you have it all installed, <code class="language-bash">cd</code> to the root of the project and type <code class="language-bash">grunt</code>, browse to <code class="language-bash">localhost:3000</code> and.. <b>start coding</b>! It is suggested to open two terminal windows (with <b>GIT</b> support) while working: one will be busy watching for changes and live reloading the browser for you, the other will be useful for downloading assets via bower on the go, to perform manual grunt tasks or to push your commits online.
                 </p>
 
                 <div class="alert--warning trailing">
@@ -227,7 +227,7 @@
                     Folder Structure
                 </h2>
                 <p>
-                    BoxTent is based on three levels divided in <b>3 main folders</b>:
+                    BoxTent is based on three levels and is divided in <b>3 main folders</b>:
                     <ul class="page-ul">
                         <li>
                             <code class="language-bash">_src</code>: this is your source code, this is where you work
@@ -241,7 +241,7 @@
                     </ul>
                 </p>
                 <p>
-                    You always work on <code class="language-bash">_src</code> and <b>never edit anything</b> on <code class="language-bash">_dev</code> or <code class="language-bash">_site</code>. <br><br> <code class="language-bash">_dev</code> is the result of low-level automations such as sass compilation, autoprefixing, browser reloading and generally tasks suited for development. At this stage, your website will be <b>easy to debug</b>. <br><br>
+                    You always work on <code class="language-bash">_src</code> and <b>never edit anything</b> on <code class="language-bash">_dev</code> or <code class="language-bash">_site</code>. <br><br> <code class="language-bash">_dev</code> is the result of low-level automations such as sass compilation, autoprefixing, browser reloading and generally tasks suited for development. At this stage, your website will be <b>easy to debug</b> and not perfectly optimized.
 
                     The <code class="language-bash">_site</code> folder instead, will be fully optimized with performance in mind. <b>This is the code that will go live in production</b>. <br><br>
 
@@ -280,10 +280,8 @@
             options: {
                 style: 'nested', //no need for config.rb
                 compass: 'true',
-                // require: 'plugins?'
                 require: 'susy'
-                ...
-    </code></pre>
+                ...</code></pre>
                     <p>
                         Autoprefixing is dynamic and configurable in the gruntfile. To read about configuration options and more <a href="https://github.com/postcss/autoprefixer" target="_blank">click here</a>.
                     </p>
@@ -312,7 +310,12 @@
                     Paths of selectors such as <code class="language-css">@font-face</code> or <code class="language-css">background-image: url()</code> are automatically transformed in relative paths. If your website will not be hosted on a first level domain you will have <b>404</b> errors on the console because of wrong paths to these resources. To quickly solve this problem, uncomment <code class="language-javascript"> //ignore: ['@font-face',/url\(/]</code> in the gruntfile: this will exclude anything linking to assets in the above the fold CSS. <br><br> The CSS will be inlined only when <code class="language-bash">_site</code> is produced during the build stage. Notice that <b>critical CSS is coupled with the main CSS file being appended and loaded asynchronously</b> with a javascript function called <code class="language-javascript">loadCSS()</code> located in  <code class="language-markup">&lt;head&gt;</code>, <a href="https://github.com/filamentgroup/loadCSS" target="_blank">read more about it here</a>.
                 </p>
                 <div class="alert--danger trailing">
-                    Loading the main CSS file asynchronously may cause some presentational javascript problems, as if you're using stylesheets that are loaded AFTER the scripts, or the layout of the page depends on image sizes or other content, the ready event will hit when the page is not in its final rendering state.
+                    Loading the main CSS file asynchronously may cause some presentational javascript problems as your main stylesheet is loaded after the scripts. If your functions depend on the page being fully rendered, you may get visualization errors. If this happens, <a href="https://github.com/filamentgroup/loadCSS/blob/master/src/onloadCSS.js" target="_blank">try adding this function</a> that grants onload support for asynchronous stylesheets loaded with loadCSS after the main loadCSS function in <code class="language-markup">head.html</code>  and substitute your <code class="language-javascript">$( document ).ready()</code> function in your <code class="language-bash">main.js</code> file with something like this: <br><br>
+<pre><code class="language-javascript">var stylesheet = loadCSS("css/main.css");
+    onloadCSS(stylesheet, function() {
+        // your init functions
+}); // stylesheet has loaded
+</code></pre>
                 </div>
             </section> <!-- critical css -->
 

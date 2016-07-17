@@ -94,6 +94,7 @@ img {
     position: relative;
     img {
         vertical-align: bottom;
+        width: 100%;
         @include respond-to(63.938) {
             max-width: 380px;
             padding-top: rhythm(1);
