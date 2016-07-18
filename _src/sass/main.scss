@@ -95,6 +95,8 @@ img {
     img {
         vertical-align: bottom;
         width: 100%;
+        height: auto;
+        max-width:100%;
         @include respond-to(63.938) {
             max-width: 380px;
             padding-top: rhythm(1);
@@ -122,6 +124,7 @@ img {
 .header__content-wrapper {
     position: absolute;
     bottom: 0;
+    width: 100%;
     @include respond-to(63.938) {
         position: static;
     }

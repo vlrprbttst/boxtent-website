@@ -114,7 +114,7 @@ onloadCSS(stylesheet, function() {
     //header eq height
     bgSize();
     stickyNav();
-    $('.header > div').addClass("headerHeight").removeClass("headerHeight").matchHeight();;
+    $('.header > div').addClass("headerHeight").removeClass("headerHeight").matchHeight();
 
 }); // stylesheet has loaded
 
