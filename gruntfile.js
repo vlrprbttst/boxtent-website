@@ -159,7 +159,7 @@ module.exports = function(grunt) {
                 options: {
                     style: 'nested', //no need for config.rb
                     compass: 'true',
-                    // require: 'plugins?'
+                    require: 'sassy-buttons'
                 },
                 files: {
                     '<%= dev %>/css/main.css': '<%= source %>/sass/main.scss'

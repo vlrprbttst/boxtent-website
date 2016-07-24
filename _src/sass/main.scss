@@ -1,5 +1,6 @@
 // base
 @import "compass";
+@import "sassy-buttons";
 @import "partials/_variables.scss";
 @import "partials/_mixin.scss";
 @import "partials/_normalize.scss";
@@ -116,6 +117,22 @@ img {
              @include adjust-font-size-to(18px,1);
         }
     }
+    .btn__clone {
+        @include sassy-button("shiny", 5px, 19px, $accent2);
+        @include sassy-button-style("push", $accent2);
+        text-decoration: none;
+        text-shadow: 0 1px 0 rgba(0,0,0,.3);
+        svg {
+            vertical-align: top;
+            position:relative;
+            top: 2px;
+            fill:white;
+
+        }
+        @include respond-to(63.938) {
+            display: none;
+        }
+    }
     @include respond-to(63.938) {
         width: 100%;
         height: auto!important;
@@ -123,7 +140,7 @@ img {
 }
 .header__content-wrapper {
     position: absolute;
-    bottom: 0;
+    bottom: 30px;
     width: 100%;
     @include respond-to(63.938) {
         position: static;
@@ -143,9 +160,7 @@ img {
         display: none;
     }
 }
-.headerHeight {
-    height: 496px;
-}
+
 .container {
     max-width: 1240px;
     margin: 0 auto;
