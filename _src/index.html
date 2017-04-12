@@ -53,12 +53,11 @@
                 </p>
                 <p>
                     <ul class="page-ul">
-                        <li><a href="http://sass-lang.com/guide" target="_blank">Sass</a> (<code class="language-markup">.scss</code>) compilation with <a href="http://compass-style.org/" target="_blank">Compass</a> support</li>
+                        <li><a href="http://sass-lang.com/guide" target="_blank">Sass</a> (<code class="language-markup">.scss</code>) compilation</li>
                         <li>Images optimization and compression</li>
                         <li><code class="language-markup">.js</code> concatenation</li>
                         <li><code class="language-markup">.html</code>, <code class="language-markup">.css</code> and <code class="language-markup">.js</code> minification</li>
                         <li><code class="language-markup">.css</code> automatic autoprefixing</li>
-                        <li>Critical above the fold <code class="language-markup">.css</code> smart management</li>
                         <li>Browser auto-reloading and live syncing across devices</li>
                         <li><code class="language-markup">.html</code> includes</li>
                     </ul>
@@ -120,13 +119,15 @@
                     gems
                 </h4>
                 <p>
-                    To support <b>Sass</b> and <b>Compass</b>, you must have their gems installed on your machine. Type these in the terminal anywhere <code class="language-bash">gem install sass</code> and then <code class="language-bash">gem install compass</code>.
+                    To support <b>Sass</b>, install it typing <code class="language-bash">gem install sass</code>
+                </p>
 
                 <h4>
                     dependencies
                 </h4>
                 <p>
                     To install the default BoxTent dependencies, <code class="language-bash">cd</code> to the root of the cloned repository and type <code class="language-bash">npm install</code> and then <code class="language-bash">bower install</code>.
+                </p>
 
                     <div class="alert--warning">
                         Don't mind the deprecation warnings while installing the dependencies.
@@ -198,13 +199,11 @@
                     <p>
                         <code class="language-bash">.scss</code> files are compiled and autoprefixed in<code class="language-bash"> _dev/css/main.css</code>. <br><br>
 
-                        Sass compilation comes with Compass support but if you don’t need it, you can remove  the <code class="language-scss">@import "compass";</code> from your <code class="language-bash">main.scss</code> file and from the gruntfile. In case you want to use other sass plugins, just install the gems and update your gruntfile accordingly. For example, if you decide to use <a href="http://susy.oddbird.net/" target="_blank">Susy</a> as your grid system, in the terminal type <code class="language-bash">gem install susy</code>, then <code class="language-scss">@import "susy";</code> on top of the <code class="language-bash">main.scss</code> file and edit your gruntfile like this:
+                        In case you want to use other sass plugins, just install the gems and update your gruntfile accordingly. For example, if you decide to use <a href="http://susy.oddbird.net/" target="_blank">Susy</a> as your grid system, in the terminal type <code class="language-bash">gem install susy</code>, then <code class="language-scss">@import "susy";</code> on top of the <code class="language-bash">main.scss</code> file and edit your gruntfile like this:
                     </p>
     <pre><code class="language-javascript">sass: {
         dist: {
             options: {
-                style: 'nested', //no need for config.rb
-                compass: 'true',
                 require: 'susy'
                 ...</code></pre>
                     <p>
@@ -214,35 +213,6 @@
                         Remember to update the autoprefixer configuration of both the <code>postcss:dev</code> and <code>postcss:build</code> task!
                     </div>
                 </section> <!-- css -->
-
-                <section id="critical-css">
-                    <h3>
-                        Critical (AKA Above the Fold) CSS <code>[grunt critical]</code>
-                    </h3>
-                    <p>
-                        BoxTent was <b>created with performance in mind</b>, and automatic above the fold css extraction and embedding is one of BoxTent features. Critical css is page-based, so it is created every time you save an <code class="language-bash">.html</code> file and every CSS file is automatically named after its related page. It is then updated every time you edit your <code class="language-bash">.scss</code> files. The extracted css must be included on each page’s <code class="language-markup">&lt;head&gt;</code> wrapped around special comments like this:
-                    </p>
-    <pre><code class="language-markup">&lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot;&gt;
-    &lt;title&gt;BoxTent&lt;/title&gt;
-
-    &lt;!-- build:css:build inline --&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;critical-css/index.css&quot;&gt;
-    &lt;!-- /build --&gt;
-    ...</code>
-    </pre>
-                <p>
-                    Paths of selectors such as <code class="language-css">@font-face</code> or <code class="language-css">background-image: url()</code> are automatically transformed in relative paths. If your website will not be hosted on a first level domain you will have <b>404</b> errors on the console because of wrong paths to these resources. To quickly solve this problem, uncomment <code class="language-javascript"> //ignore: ['@font-face',/url\(/]</code> in the gruntfile: this will exclude anything linking to assets in the above the fold CSS. <br><br> The CSS will be inlined only when <code class="language-bash">_site</code> is produced during the build stage. Notice that <b>critical CSS is coupled with the main CSS file being appended and loaded asynchronously</b> with a javascript function called <code class="language-javascript">loadCSS()</code> located in  <code class="language-markup">&lt;head&gt;</code>, <a href="https://github.com/filamentgroup/loadCSS" target="_blank">read more about it here</a>.
-                </p>
-                <div class="alert--danger trailing">
-                    Loading the main CSS file asynchronously may cause some presentational javascript problems as your main stylesheet is loaded after the scripts. If your functions depend on the page being fully rendered, you may get visualization errors. If this happens, <a href="https://github.com/filamentgroup/loadCSS/blob/master/src/onloadCSS.js" target="_blank">try adding this function</a> that grants onload support for asynchronous stylesheets loaded with loadCSS after the main loadCSS function in <code class="language-markup">head.html</code>  and substitute your <code class="language-javascript">$( document ).ready()</code> function in your <code class="language-bash">main.js</code> file with something like this: <br><br>
-<pre><code class="language-javascript">var stylesheet = loadCSS("css/main.css");
-    onloadCSS(stylesheet, function() {
-        // your init functions
-}); // stylesheet has loaded
-</code></pre>
-                </div>
-            </section> <!-- critical css -->
 
             <section id="fonts">
                 <h3>
@@ -340,10 +310,10 @@
                     </div>
 
                     <h3>
-                        CSS and Critical CSS <code>[grunt clean copy:css_build && grunt postcss:build]</code>
+                        CSS <code>[grunt copy:css_build && grunt postcss:build]</code>
                     </h3>
                     <p>
-                        <code class="language-bash">main.css</code> is minified and aggressively optimized by <a href="http://cssnano.co/" target="_blank">cssnano</a>, a <a href="http://postcss.org/" target="_blank">PostCSS</a> plugin. Critical css is automatically inlined in <code class="language-markup">&lt;head&gt;</code>.
+                        <code class="language-bash">main.css</code> is minified and optimized by <a href="http://cssnano.co/" target="_blank">cssnano</a>, a <a href="http://postcss.org/" target="_blank">PostCSS</a> plugin.
                     </p>
                     <div class="alert--danger">
                         cssnano optimization can be pretty aggressive, if your <code>_site</code> doesn't look as expected, it may be cssnano's fault so be sure to check <a href="http://cssnano.co/" target="_blank">http://cssnano.co/</a> for optimization options.
@@ -412,9 +382,6 @@
                                 </li>
                                 <li>
                                     <a href="https://github.com/gruntjs/grunt-contrib-watch" target="_blank">grunt-contrib-watch</a>: live watching for changes
-                                </li>
-                                <li>
-                                    <a href="https://github.com/addyosmani/critical" target="_blank">grunt-critical</a>: extracting critical above the fold CSS
                                 </li>
                                 <li>
                                     <a href="https://github.com/taylorcode/grunt-delete-sync" target="_blank">grunt-delete-sync</a>: keeping folders in sync by deleting extra files
